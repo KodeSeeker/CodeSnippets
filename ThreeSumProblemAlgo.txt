@@ -1,0 +1,18 @@
+ sort(S);
+ for i=0 to n-3 do
+    a = S[i];
+    k = i+1;
+    l = n-1;
+    while (k<l) do
+       b = S[k];
+       c = S[l];
+       if (a+b+c == 0) then
+          output a, b, c;
+          exit;
+       else if (a+b+c > 0) then
+          l = l - 1;
+       else
+          k = k + 1;
+       end   
+    end
+ end

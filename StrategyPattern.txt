@@ -1,0 +1,2 @@
+ strategy pattern (also known as the policy pattern) is a software design pattern, whereby an algorithm's behaviour can be selected at runtime.
+the strategy pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable
