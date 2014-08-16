@@ -13,7 +13,7 @@ public boolean  BFS (int [] [] in, int x,int y, Coordinate target)
 	q.push(c);
 	while(!q.isEmpty())
 	{
-		Node n = q.pop();
+		Coordinate  n = q.pop();
 		n.visited =true;
 		if (n==target)
 			return true;
