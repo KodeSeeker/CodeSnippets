@@ -4,13 +4,13 @@ public class BreadthFirst
 
 public Queue<Coordinates> q = new LinkedList<Cooridnates>();
 
+public static  int[] rowIndices= new int[]{-1,-1,-1,0,0,1,1,1};
+public static  int[] colIndices= new int[]{-1,0,1,-1,1,-1,0,1};
 //x and y are the start coordinates
 public boolean  BFS (int [] [] in, int x,int y)
 {
 	Coordinate c= new Coordinate(x,y); //let c be the origin.
 	q.push(c);
-  	int[] rowIndices= new int[]{-1,-1,-1,0,0,1,1,1};
-        int[] colIndices= new int[]{-1,0,1,-1,1,-1,0,1};
 	while(!q.isEmpty())
 	{
 		Node n = q.pop();
@@ -19,9 +19,14 @@ public boolean  BFS (int [] [] in, int x,int y)
 			return true;
 		else
 		{
-			for (int k=0;k<8;k++)
+		for (int k=0;k<8;k++)
 			{
-				q.add( new Coordinate(x+rowIndex[k], y+colIndex[k]);
+			//	q.add( new Coordinate(x+rowIndex[k], y+colIndex[k]);
+				Coordinate temp= new Coordinate(x+rowIndex[k], y+colIndex[k] );
+				if(!temp.visited )
+					{
+						q.add(temp);
+					}
 			}
 		}
 	}
