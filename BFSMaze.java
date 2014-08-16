@@ -5,7 +5,8 @@ public class BreadthFirst
 public static  int[] rowIndices= new int[]{-1,-1,-1,0,0,1,1,1};
 public static  int[] colIndices= new int[]{-1,0,1,-1,1,-1,0,1};
 public static boolean[][] visited;
-
+import java.util.LinkedList;
+import java.util.Queue;
 //x and y are the start coordinates
 public boolean  BFS (int [] [] in, int x,int y, Coordinate target)
 {
@@ -67,4 +68,4 @@ class Coordinate
 	}
 }
 
-
+}
