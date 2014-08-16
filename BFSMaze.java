@@ -50,7 +50,7 @@ class Coordinate
 	@Override
 	public boolean equals(Coordinate c)
 	{
-		if (!c.instanceof(Coordinate))
+		if (!(c instanceof Coordinate))
 			return false;
 		if (c==this)
 			return true;
