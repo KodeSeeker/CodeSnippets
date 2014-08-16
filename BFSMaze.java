@@ -2,8 +2,6 @@
 public class BreadthFirst
 {
 
-public Queue<Coordinates> q = new LinkedList<Cooridnates>();
-
 public static  int[] rowIndices= new int[]{-1,-1,-1,0,0,1,1,1};
 public static  int[] colIndices= new int[]{-1,0,1,-1,1,-1,0,1};
 public static boolean[][] visited;
@@ -22,14 +20,14 @@ public boolean  BFS (int [] [] in, int x,int y, Coordinate target)
 	{
 		Coordinate n= q.pop();
 		visited[n.x][n.y]=true;
-		if(n ==target)
+		if(n.equals(target))
 		  return true;
 		else
 		{
 		   for (int k=0;k<8;k++)
 			{
 				if(!visited[n.x+rowIndices[k]][n.y+colIndices[k]])
-					q.add(new Coordinate( [n.x+rowIndices[k]],n.y+colIndices[k]]);
+					q.add(new Coordinate( n.x+rowIndices[k],n.y+colIndices[k]]);
 			}
 		}
 	}
