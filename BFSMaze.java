@@ -28,7 +28,7 @@ public boolean  BFS (int [] [] in, int x,int y, Coordinate target)
 		   for (int k=0;k<8;k++)
 			{
 				if(!visited[n.x+rowIndices[k]][n.y+colIndices[k]])
-					q.add(new Coordinate( n.x+rowIndices[k],n.y+colIndices[k]]);
+					q.add(new Coordinate( n.x+rowIndices[k],n.y+colIndices[k]);
 			}
 		}
 	}
