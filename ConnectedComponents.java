@@ -45,7 +45,7 @@ public static int connectedComponents(int [][] in )
 		{
 			if(in[i][j]==1 && visited[i][j]==false)
 			{
-				DFS(in[i][j],i,j,visited);
+				DFS(in[i][j],i,j);
 				countConnectedComponents++;
 			}
 		}
@@ -66,12 +66,12 @@ public void DFS(int[][] in,int x,int y)
 	//mark all k neighbors as visited.
 	for(int k=0;k<8;k++)
 	{
-		if(isSafeToVisit(in,x,y))
-			DFS(in,x+k,y+k);	
+		if(isSafeToVisit(in,x+rowIndices[k],y+colIndices[k]))
+			DFS(in,x+rowIndices[k],y+rowIndices[k]);	
 	}
 
 }
-
+	
 
 
 /**
