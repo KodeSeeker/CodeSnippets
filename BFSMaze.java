@@ -34,3 +34,37 @@ public boolean  BFS (int [] [] in, int x,int y, Coordinate target)
 
 	return false;
 }
+
+
+class Coordinate 
+{
+	int x;
+	int y;
+	
+	Coordinate(int x,int y)
+	{
+		this.x=x;
+		this.y=y;
+	}
+	
+	@Override
+	public boolean equals(Coordinate c)
+	{
+		if (c==null)
+			return false;
+		if (!c.instanceof(Coordinate))
+			return false;
+		else
+		{
+			return (this.x==c.x) &&(this.y==c.y);
+		}
+	}
+	
+	@Override 
+	public int hashCode()
+	{
+		return 17*this.x*this.y;
+	}
+}
+
+
