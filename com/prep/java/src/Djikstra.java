@@ -1,75 +1,93 @@
-/*
-Finds all the shortest paths from a given node in a graph. Condition:
+mport java.util.PriorityQueue;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
 
-Graph should have only positive edges.
-Approach:
-1)Maintain an array of  (shortest) distances from one node to each node.
-   - Initialize the array to MAX_VAL.
- 2)Init Distance of Source from itself to 0.
- 3) Find the nearest neighbor and mark it as visited.
- 4) For each of its neighbors, find the shortest distance and update the distance matrix if the distance is lesser
-    than the current minimum distance to that node.
-5) Keep track of the preceding node in the path (in an array) to backtrack. 
-**/
-
-public  void  Djikstra(Graph  G)
+class Vertex implements Comparable<Vertex>
 {
-    if (G==null )
-        return ;
-    int[] dist= new int[G.size()];
-    int[] pred= new int [G.size()];
-    //keep track of whether a node has been visited or not.
-    boolean[]  vistited = new boolean[G.size()];
-    int s= G.source;
-    visitied[s]=true;
-    dist[s]=0;// distance from source =0.
-    //set all others to max_val
-    for(int i=1;i<dist.length;i++)
+    public final String name;
+    public Edge[] adjacencies;
+    public double minDistance = Double.POSITIVE_INFINITY;
+    public Vertex previous;
+    public Vertex(String argName) { name = argName; }
+    public String toString() { return name; }
+    public int compareTo(Vertex other)
     {
-        dist[i]=INTEGER.MAX_VALUE;
+        return Double.compare(minDistance, other.minDistance);
     }
-    
-    for(int i=0;i<dist.length;i++)
-    {
-     Node nxt= nearestUnvisitedNode(dist,visited);
-     //set this node also as visited.
-     
-     visited[nxt]=true;
-     Node[] neighbors= nxt.getNeighbors();
-     
-     for (int i=0;i<neightbors.length;i++)
-     {
-         Node n = neighbors[i]; // get the neighbors node value. 
-         int d =getDistance (nxt,n)+dist[next];// find distance to neighbor node through this node.
-         if(dist[n]>d)
-         {
-             dist[n]=d;
-             pred[n]=nxt;
-         }
-     }
-     
-     return pred;// this has the  shortest path ordering.
-    }
-    
-    
-    
-    
-    Node nearestUnivisitedNode(int[] dist, int [] visited)
-    {
-        int distance=INTEGER.MAX_VALUE;
-        int n= -1;// node not found. or all nodes visited.
-        for(int i=0;i<dist.length;i++)
-     {
-         if (dist[i]<distance  && !visited[i])
-         {
-             distance=dist[i];
-             n=i;
-         }
-         
-     }
-     return n;
-    }
-    
-    
 }
-    
+
+class Edge
+{
+    public final Vertex target;
+    public final double weight;
+    public Edge(Vertex argTarget, double argWeight)
+    { target = argTarget; weight = argWeight; }
+}
+
+public class Dijkstra
+{
+    public static void computePaths(Vertex source)
+    {
+        source.minDistance = 0.;
+        PriorityQueue<Vertex> vertexQueue = new PriorityQueue<Vertex>();
+        vertexQueue.add(source);
+
+  while (!vertexQueue.isEmpty()) {
+	    Vertex u = vertexQueue.poll();
+
+            // Visit each edge exiting u
+            for (Edge e : u.adjacencies)
+            {
+                Vertex v = e.target;
+                double weight = e.weight;
+                double distanceThroughU = u.minDistance + weight;
+		if (distanceThroughU < v.minDistance) {
+		    vertexQueue.remove(v);
+		    v.minDistance = distanceThroughU ;
+		    v.previous = u;
+		    vertexQueue.add(v);
+		}
+            }
+        }
+    }
+
+    public static List<Vertex> getShortestPathTo(Vertex target)
+    {
+        List<Vertex> path = new ArrayList<Vertex>();
+        for (Vertex vertex = target; vertex != null; vertex = vertex.previous)
+            path.add(vertex);
+        Collections.reverse(path);
+        return path;
+    }
+
+    public static void main(String[] args)
+    {
+        Vertex v0 = new Vertex("Redvile");
+	Vertex v1 = new Vertex("Blueville");
+	Vertex v2 = new Vertex("Greenville");
+	Vertex v3 = new Vertex("Orangeville");
+	Vertex v4 = new Vertex("Purpleville");
+
+	v0.adjacencies = new Edge[]{ new Edge(v1, 5),
+	                             new Edge(v2, 10),
+                               new Edge(v3, 8) };
+	v1.adjacencies = new Edge[]{ new Edge(v0, 5),
+	                             new Edge(v2, 3),
+	                             new Edge(v4, 7) };
+	v2.adjacencies = new Edge[]{ new Edge(v0, 10),
+                               new Edge(v1, 3) };
+	v3.adjacencies = new Edge[]{ new Edge(v0, 8),
+	                             new Edge(v4, 2) };
+	v4.adjacencies = new Edge[]{ new Edge(v1, 7),
+                               new Edge(v3, 2) };
+	Vertex[] vertices = { v0, v1, v2, v3, v4 };
+        computePaths(v0);
+        for (Vertex v : vertices)
+	{
+	    System.out.println("Distance to " + v + ": " + v.minDistance);
+	    List<Vertex> path = getShortestPathTo(v);
+	    System.out.println("Path: " + path);
+	}
+    }
+}

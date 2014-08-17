@@ -1,0 +1,81 @@
+Collection of pointers
+
+ %s- format with as many strings as needed
+  %15s- formats with 15 characters and right justifys
+ %-15s -formats with 15 chara and left justifys
+
+%d- format a string with as many numbers as needed
+%4d - formats a string with 4 integers, will pad spaces on left(if not enough integers) to ensure alignment
+%-4d- formats a string with 4 integers, will pad spaces on the (if not integers) right to ensure alignment
+
+%f- formats a string with as many numbers as needed
+%.2f-formats string with 2 decimal points
+%10.2f-formats to 2 decimal points but whole string will occupy 10 chara
+
+
+--Methods vs Functions---
+
+A function is a piece of code that is called by name. It can be passed data to operate on (ie. the parameters) and can optionally return data (the return value).
+
+All data that is passed to a function is explicitly passed.
+
+A method is a piece of code that is called by name that is associated with an object. In most respects it is identical to a function except for two key differences.
+
+    It is implicitly passed the object for which it was called
+    It is able to operate on data that is contained within the class (remembering that an object is an instance of a class - the class is the definition, the object is an instance of that data)
+
+(this is a simplified explanation, ignoring issues of scope etc.)
+
+http://stackoverflow.com/questions/155609/what-is-the-difference-between-a-method-and-a-function
+
+---Virtual Function vs Pure Virtual function---
+
+A virtual function makes its class a polymorphic base class. Derived classes can override virtual functions. Virtual functions called through base class pointers/references will be resolved at run-time. That is, the dynamic type of the object is used instead of its static type: 
+
+Derived d;
+ Base& rb = d;
+ // if Base::f() is virtual and Derived overrides it, Derived::f() will be called
+ rb.f();  
+
+A pure virtual function is a virtual function whose declaration ends in =0:
+
+class Base {
+  // ...
+  virtual void f() = 0;
+  // ...
+
+A pure virtual function makes the class it is defined for abstract. Abstract classes cannot be instantiated. Derived classes need to override/implement all inherited pure virtual functions. If they do not, they too will become abstract.
+In C++, a class can define a pure virtual function that has an implementation.
+
+-- Static Initialization--
+A classes static initialization normally happens immediately before the first time one of the following events occurs:
+
+    an instance of the class is created,
+    a static method of the class is invoked,
+    a static field of the class is assigned,
+    a non-constant static field is used, or
+    for a top-level class, an assert statement lexically nested within the class is executed.
+
+http://stackoverflow.com/questions/3499214/java-static-class-initialization
+
+
+-Final, finally, finalize
+http://stackoverflow.com/questions/7814688/in-java-what-purpose-do-the-keywords-final-finally-and-finalize-fulfil
+
+-- Final classes cannot be inherited!--
+
+--Aggregation vs Composition--
+
+Aggregation is a special case of association. A directional association between objects. When an object ‘has-a’ another object, then you have got an aggregation between them. Direction between them specified which object contains the other object. Aggregation is also called a “Has-a” relationship.
+
+Composition is a special case of aggregation. In a more specific manner, a restricted aggregation is called composition. When an object contains the other object, if the contained object cannot exist without the existence of container object, then it is called composition.
+Example: A class contains students. A student cannot exist without a class. There exists composition between class and students.
+
+Difference between aggregation and composition
+
+Composition is more restrictive. When there is a composition between two objects, the composed object cannot exist without the other object. This restriction is not there in aggregation. Though one object can contain the other object, there is no condition that the composed object must exist. The existence of the composed object is entirely optional. In both aggregation and composition, direction is must. The direction specifies, which object contains the other object.
+
+Example: A Library contains students and books. Relationship between library and student is aggregation. Relationship between library and book is composition. A student can exist without a library and therefore it is aggregation. A book cannot exist without a library and therefore its a composition
+
+http://www.coderanch.com/t/522414/java/java/Association-Aggregation-Composition-- Good example
+
