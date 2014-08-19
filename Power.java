@@ -12,9 +12,9 @@ int power (int a, int b)
         return 1;
     // case even
     if(b%2==0)
-        return pow(a,b/2) * pow(a,b/2);
+        return power(a,b/2) * power(a,b/2);
     else
-        return a*pow(a,b/2 ) pow(a,b/2);
+        return a*power(a,b/2 )* power(a,b/2);
 }
 
 // can be improved to O(logn) by storing pow(a,b/2), rather than computing it each time
@@ -25,7 +25,7 @@ int power (int a, int b)
         return 1;
     // case even
  
-    int temp =pow(a,b/2);
+    int temp =power(a,b/2);
     
     if(b%2==0) // b is even
             return temp*temp;

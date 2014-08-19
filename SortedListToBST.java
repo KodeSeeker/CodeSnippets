@@ -13,19 +13,15 @@ public Node sortedListToBST(Node head)//wrapper
   
   
 }
-
-public Node sortedListToBST(Node h,int start,int end)
+// in order traversal approach
+public TreeNode sortedListToBST(Node h,int start,int end)
 {
- int mid= (start +(end-start))/2;
- 
- TreeNode left=sortedListToBST(start,mid-1);
- TreeNode root=h.val;
- h=h.next;// only difference between array and linked list!
-  TreeNode right=sortedListToBST(mid+1,end);
- //set the left and right
- root.setLeft(left);
- root.setRight(right);
- 
- return root;
- 
+ 		int mid= (start + end )>>>1;
+		TreeNode leftChild = sortedListToBST(h, start,mid-1);
+		TreeNode root= new TreeNode(h.data);
+		root.left=leftChild;
+		h=h.next;// forward to next node-- differs from array here.
+		TreeNode rightChild = sortedListToBST(h, mid+1, end);
+		root.right=rightChild;			
+		return root;	
 }

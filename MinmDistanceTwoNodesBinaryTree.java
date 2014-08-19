@@ -40,4 +40,18 @@ http://d2o58evtke57tz.cloudfront.net/wp-content/uploads/dist.png
     int distNode2=getDistFromRoot(root,value2,0);
     
     return (distNode1+distNode2- (2*rootToLCA));
-  }
+  
+}
+public Node LCA( Node root, int value1, int value2)//value 1 and value2 should be in the array.
+{
+	if (root.value == value1 || root.value ==value2)
+		return root;
+	Node left = LCA (root.getLeft(),value1, value2);
+	Node right= LCA(root.getRight(),value1,value2);)
+	if (left ! =null && right !=null)	
+		return root; // value 1 and value 2 are on either side.
+	if(left	==null)
+		return right;// left is null look at right.
+	if(right==null)
+		return left;// right is null look at left.
+}
