@@ -1,12 +1,9 @@
-public String findLongestSubstring(String s1, String s2) {
+public String findLongestCommonPrefixSuffix(String s1, String s2) {
      
      //Updated with simpler logic.
-     
-    boolean equals= false;
-    
     if (s1.equals(s2))
     {
-            return equals;
+            return s1; //or s2
     }
     int minLen=Math.min(s1.length(),s2.length())
     
@@ -20,6 +17,5 @@ public String findLongestSubstring(String s1, String s2) {
             }
     }
     
-    
-    return s1.substring(0,i);
+     return s1.substring(0,max);
     }
