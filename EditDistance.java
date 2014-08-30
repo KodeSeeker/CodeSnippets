@@ -20,12 +20,12 @@ public class EditDistance{
   //Base case.
   for(int i=0; i <len1;i++)
   {
-      memo[i][0]=s1.charAt(i);// build the matrix for len2=0 ie. len1 deletions.
+      memo[i][0]=i;// build the matrix for len2=0 ie. len1 deletions.
   }
   
   for(int j=0;j <len2;j++)
   {
-      memo[0][j]=s2.chartAt(j);// build the matrix for len1 =0 ie. len2 insertions.
+      memo[0][j]=j;// build the matrix for len1 =0 ie. len2 insertions.
   }
   
   for(int i=1;i< =len1;i++)
