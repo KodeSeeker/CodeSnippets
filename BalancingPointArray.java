@@ -13,13 +13,14 @@ public class HelloWorld{
 		for(int i=0; i<a.length;i++)//notice we start from 2nd as 1st value is set
 			rightSum += a[i];//each sum is sum of previous sum plus current value
 		
-		for(int i=0; i<a.length-1;i++)
+		for(int i=0; i<a.length;i++)
 		{
+			leftSum+=a[i];
 			if(leftSum==rightSum)
-				return i;
-			leftSum+=a[i+1];
-			rightSum-=a[i];
+				return i;// balancing point.-Return!
+			leftSum+=a[i];
+		
 		}
-		return -1;//otherwise we return -1 as not found
+		return -1;//otherwise we return -1 as there is no balancing point.
 	}
 }

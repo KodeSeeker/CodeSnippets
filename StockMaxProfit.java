@@ -25,3 +25,4 @@ public static int maxProfit(int[] stockPricesYesterday)
   
   return mx_profit;
 }
+

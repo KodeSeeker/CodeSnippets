@@ -1,1 +1,7 @@
-Use two stacks. Every time you visit a site, push its address in stack1. When you press back, pop from stack1 and also push in stack2. When user presses forward, pop from stack2 and also push in stack1.
+Use two stacks. Every time you visit a site, push its address in stack1.
+When you press back, pop from stack1 and also push in stack2. 
+When user presses forward, pop from stack2 and also push in stack1.
+
+
+
+

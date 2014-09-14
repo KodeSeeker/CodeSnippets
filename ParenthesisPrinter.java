@@ -1,24 +1,31 @@
 // print all valid combinations of a set of paranthesis provided a input number.
 
-public void printCombinationsWrapper(int num){
+public static void printCombinationsWrapper(int num){
 
-    System.out.println("Combinations"+printParanthesis(num,num," "));
+    if(num<=0)
+	return;
+    int count = num*2;
+    char[] str= new char[count*2];
+    printParanthesis(num,num,str,0);
     
 }
 
-    public string printParanthesis(int leftRem,int rightRem, StringBuilder current{
-    
-    //edge cases
-    if (rightRem<=0)// no more paranthesis to be printed out
-        return current.toString();
-        
-    if(leftRem>0)
-      { 
-          printParanthesis(leftRem-1,rightRem,current.append("("));
-          if(rightRem>leftRem)// imbalance between the right and leftrem so print Right
-                printParanthesis(leftRem,rightRem-1,current.append(")"));
-      }
-    if(rightRem>0)//print out all the remaining right paranthesis
-        printParanthesis(leftRem,rightRem-1,current.append(")");
-      
-      }
+public static void printParanthesis(int leftRem,int rightRem, char[] str,int count )
+{
+
+	if(leftRem ==0 && rightRem == 0)
+		System.out.println( str);// base case.
+	else
+	{
+	if(leftRem >0)
+		{
+			str[count]='(';
+			printParanthesis(leftRem-1,rightRem,str,count+1);
+		}
+	if(rightRem>0 && rightRem< leftRem)
+		{
+			str[count]=')';
+			printParanthesis(leftRem,rightRem-1,str,count+1);
+		}
+	}
+}

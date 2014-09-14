@@ -29,3 +29,40 @@ public static TreeNode inorderSucc(Node n) {
        e = e.left; // keep going left
     return e; 
  }
+
+/**
+Without using parent pointers.
+**/
+public static Node InOrderSucc(Node root, Node n)
+{
+	// if n has a right subtree. then the succ is the smallest in the right subtree
+	if(n.getRight!=null)
+	{
+		return minVal(n.getRight);
+	}
+	
+	//else repetitively search the left subtree for the smallest value larger than the node.
+	
+	else
+	{
+		Node succ;
+		while(root!=null)
+		{
+			if(n.data <root.data)
+			{
+		 		succ=root;
+				root=root.getLeft;
+			}
+			else if (n.data > root.data)
+			{
+				root=root.getRight;
+			}
+			else
+				break;
+		}
+		
+		return succ;
+	}
+}
+	
+

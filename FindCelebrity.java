@@ -34,13 +34,17 @@ public int findCelebrity (int[] arr)
     
     int a= st.pop();
     int b=st.pop();
+    if (HaveAcquaintance(a,b) && HaveAcquaintance(b,a))
+	{
+		continue; // a and b know each other . - they cannot be celebrities
+	}
     if(HaveAcquaintance(a,b)
     {
       // a knows b.  a is not celebrirty
       st.push(b);
     }
-    else
-    // b knows a
+    else if (HaveAcquaintance(b,a))
+    // b knows a- b cannot be a celebrity.
       st.push(a);
   }
   // program finishes here if we know for sure there is a celebirity --> return st.pop.

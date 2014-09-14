@@ -34,12 +34,12 @@ public void Node findKthSmallestElement(Node root, int k)
   while (!stk.isEmpty())
   {
     Node kthSmall=stk.pop();
-    if(--k==0)
+    if(k==0)
     {
       //k=0
       break;
     }
-    
+    k--;
     // do we have a right child for this node?
     if(kthSmall.getRight()!=null)
     {

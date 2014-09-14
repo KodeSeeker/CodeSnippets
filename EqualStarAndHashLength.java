@@ -31,7 +31,7 @@ public int longestLength(String in)
   int max_dist=0;  
   for (int i=0;i<aux.length;i++)
   {
-    if(i==0)
+    if(aux[i]==0)
       max_dist=i;
     if(map.contains(aux[i]))
       max_dist=Math.max(max_dist,i- map.get(aux[i])-1);

@@ -9,7 +9,7 @@ public static String GetRational(double a)
 // compute the largest power of 10 that divides 'a' completely
 	while(a*tenPoly-(int)(a*tenPoly)!=0)
 		tenPoly*=10;
-	}
+
 // compute the dividend and the divisor
 	int dividend= a*tenPoly;
 	int divisor=tenPoly;
@@ -32,10 +32,8 @@ public static String GetRational(double a)
 	//let's assume a>=b
 	private static int GCD(int a, int b)
 	{
-	  int remainder= a%b;
-	  if(remainder==0)
-	  	return b;
-	  else
-	  	return GCD(b,remainder);
+	 if( a==0 || b==0)
+		return a+b;
+	 return (b, a%b);
 	}
-}
+

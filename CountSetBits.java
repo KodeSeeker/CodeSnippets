@@ -1,4 +1,4 @@
-
+//this version is wrong. Needs fixing. Brian Kernighan appraoch is best. 
 private int countSetBits(int num){
 
 //loop from i to n
