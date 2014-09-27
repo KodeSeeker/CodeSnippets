@@ -18,7 +18,7 @@ public static int divideOptimally(int dividend, int divisor)
 	List<Integer> divisors = new ArrayList<Integer>();
 	int quotient =0;
 	quotients.add(1);
-	divisiors.addh(divisor);
+	divisiors.add(divisor);
 	//index to keep track of the current quotient/divisor
 	int currentIndex=0;
 

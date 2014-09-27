@@ -6,11 +6,11 @@ public boolean isHappyNumber(int num)
 {
 	if (num == 1)
 		return true;
-	Map<Integer> repeats = new HashMap<Integer>();
+	Set<Integer> repeats = new HashSet<Integer>();
 	
 	while(num!=1 and repeats.add(num))
 	{
-		int sum =0;
+		int sum =0;		
 		
 		while(num >0)
 		{

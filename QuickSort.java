@@ -18,9 +18,9 @@ public void quickSort(int array[], int start, int end)
 		quickSort(arr,start,pivot-1);
 	}
 
-	if (pivot<right)
+	if (pivot<end)
 	{
-		quickSort(arr,pivot, right);
+		quickSort(arr,pivot,end);
 	}
 
 	

@@ -37,14 +37,15 @@ public void printSocialGraph(Member m)
 			System.out.println("Level" + level);	
  		}
 	//print the member
-	System.out.println("Member name " +current.name);
-	
-	//add his friends to the queue.
+	System.out.println("Member name " +current.name)	
+
+	level++;
+		//add his friends to the queue.
 	for (Member frnd: current.friends)
 	{
 		//add to the queue and set the level in the map.
 		q.add(frnd);
-		map.put(frnd,++level);// increment the level. and add to map.
+		map.put(frnd,level);// increment the level. and add to map.
 	}
 
   }  

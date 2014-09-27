@@ -8,13 +8,16 @@
   
   
   int[] countingSort(int[] a, int k) {
-        int c[] = new int[k];
-        for (int i = 0; i < a.length; i++)
-            c[a[i]]++;
-        for (int i = 1; i < k; i++)
-            c[i] += c[i-1];
-        int b[] = new int[a.length];
-        for (int i = a.length-1; i >= 0; i--)
-            b[--c[a[i]]] = a[i];
-        return b;
+        int c[] = new int[k]; //auxillary count array.
+	//populate count array
+	for(int i=0;i<a.length;i++)
+		c[a[i]]++;
+	//now in order to get the indexes right. Modify  count array to contain count of elements that are greater than it at every index.
+	for(int i=1;i<c.length;c++)
+		c[i]+=c[i-1];
+        //auxiliary array to hold the original array.
+	int[] b = new int [a.length];
+	for(int i=a.length-1;i>=0;i--)
+		b[--c[a[i]]]=a[i];// more here->http://www.opendatastructures.org/ods-java/11_2_Counting_Sort_Radix_So.html
+	return b;
     }

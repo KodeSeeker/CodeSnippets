@@ -40,7 +40,7 @@ public class BreadthFirst {
 	{
 
 
-        return ((x<NUM_ROWS && y<NUM_COLS) && !visited[x][y]);
+       		 return ((x<NUM_ROWS && y<NUM_COLS) && !visited[x][y]);
 
 	}	
 
