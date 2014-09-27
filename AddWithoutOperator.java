@@ -11,6 +11,6 @@ public int add( int a , int b)
 		return a;
 	int sum_without_carry= a ^ b;
 	int carry= (a & b) <<0x01;
-	return (sum,carry);
+	return (sum_without_carry,carry);
 }
 
