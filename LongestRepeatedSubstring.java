@@ -26,17 +26,17 @@ public String LongestRepeatedSubstring(String in)
 	//sort the suffix array.
 	Arrays.sort(suffixArr);
 	//now compute the longest common prefix-- 
-	String lcs;
+	String lrs;
 	for(inti=0;i<suffixArr.length-1;i++)
 	{
 		String x= lcp(suffiArr[i],suffixArr[i+1];)
 		if(x.length()>lcp.length())
 		{
-			lcs=x;	
+			lrs=x;	
 		}
 	}
 	
-	return lcs;
+	return lrs;
 }
 
 //helper to find the longest common prefix between two strings

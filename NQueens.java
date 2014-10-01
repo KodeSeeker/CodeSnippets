@@ -45,12 +45,33 @@ public static boolean isConsistent(int[] arr, int N)
 	{
 		if(arr[i]==arr[N]) 
 			return false;// same column check.
-		if(arr[i]-arr[N]==( n-i)) 
+		if(arr[i]-arr[N]==( N-i)) 
 			return false;// same major diagonal.
-		if( arr[i] - arr[N] == (i-n))
+		if( arr[i] - arr[N] == (i-N))
 			return false;// same minor diagonal
 	}
 return true;// this is a valid placement.
 }
+
+
+public void printNQueens(int [] arr)
+{
+	int N= arr.length;
+	for(int i=0;i<N;i++)
+	{
+		for(int j=0;j<N;j++)
+		{
+			if(arr[i]==j)
+				System.out.print("Q ");
+			else
+				System.out.print("* ");
+		}
+		System.out.println();
+	}
+
+	System.out.println();
+}
+	
+	
 
 

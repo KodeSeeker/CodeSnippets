@@ -15,7 +15,7 @@ public static void wordBreak(String input)
 public static void wordBreak(String input, int length, StringBuffer result)
 {
 
-	for(int i=0;i<length;i++)
+	for(int i=1;i<length;i++)
 	{
 		String prefix= input.substring(0,i);
 		
