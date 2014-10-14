@@ -55,10 +55,11 @@ public int getScore( String guess, String solution)
 	for (int i=0;i< guess.length;i++)
 	{
 		int code =code(guess.charAt(i));
-		if(code >=0 && pseudoHitMap[count]!=0)
+		if(code >=0 && pseudoHitMap[code]!=0)
 		{
 			res.pseudoHits++;
-			pseudoHitMap[count]--;
+			pseudoHitMap[codet]--;
 		}
 	}
+}
 

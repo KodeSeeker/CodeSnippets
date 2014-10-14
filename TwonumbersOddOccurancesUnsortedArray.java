@@ -24,7 +24,8 @@ public static void recoverOddOccurring(int [] arr)
     xor^=arr[i];
   }
 
-  int right_most_set_bit= xor & ~(x-1);
+  int right_most_set_bit= xor & ~(xor-1);
+
   
   for(int i=0;i<arr.length;i++)
   {

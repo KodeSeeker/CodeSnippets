@@ -46,7 +46,7 @@ public class LinkedList
 
 	public Node mergeSortedLists(Node a , Node b)
 	{
-		Node result=null;
+
 		
 		if (a ==null)
 			return b;
@@ -66,7 +66,14 @@ public class LinkedList
 			}
 		}
 		
+		while(a.getNext()!=null)
+			result.next=a.next;
+
+		while(b.next!=null)
+			result.next=b.next;
+
 		return result;
+
 	}			
 
 
