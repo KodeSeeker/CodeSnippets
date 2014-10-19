@@ -30,7 +30,9 @@ public void printOuterNodes(Node root)// wrapper
   if (root==null)
     return;
   printLeftNodes(root.getLeft(),true);
+  printLeafNodes(root);
   printRightNodes(root.getRight(),true);
+  
 }
 
 public void printLeftNodes(Node n,boolean print)// print variable decides whether the node is to be printed
@@ -38,7 +40,7 @@ public void printLeftNodes(Node n,boolean print)// print variable decides whethe
   //Pre-rder traversal
   if(n==null)
     return;
-  if(print || (root.getLeft()==null && root.getRight()==null ))// if node has no kids print.(for lower level)
+  if(print && !(root.getLeft()==null && root.getRight()==null ))//  Print only the leftmost boundary . Leave the leaf nodes
   {
     Sysout.print(root.data + " ");
   }
@@ -54,11 +56,23 @@ public void printRightNodes(Node n, boolean print)
   //post order traversal
   printRightNodes(n.getRight(),print);// right kid of a right child will be printed.
   printRightNodes(n.getLeft(),false);
-  if(print || (n.getLeft()==null && n.getRight()==null))
+  if(print &&  !(n.getLeft()==null && n.getRight()==null))///  Print only the rightmost  boundary . Leave the leaf nodes
   {
     Sysout.print (n.data+" ");
   }
 }
+
+public void printLeafNodes(Node n)
+{
+	if(n==null)
+		return;
+	if(n.getLeft()==null && n.getRight()==null)
+		System.out.print(n.data+" ");
+
+	printLeafNodes(n.getLeft());
+	printLeafNodes(n.getRight());
+}
+
 /*
 What happens when there is only one child , like
         __28_______________
@@ -85,7 +99,7 @@ public void printLeftNodes(Node n,boolean print)// print variable decides whethe
   //Pre-rder traversal
   if(n==null)
     return;
-  if(print || (root.getLeft()==null && root.getRight()==null ))// if node has no kids print.(for lower level)
+  if(print && ! (root.getLeft()==null && root.getRight()==null ))///  Print only the leftmost boundary . Leave the leaf nodes
   {
     Sysout.print(root.data + " ");
   }
@@ -101,7 +115,7 @@ public void printRightNodes(Node n, boolean print)
   //post order traversal
   printRightNodes(n.getRight(),print);// right kid of a right child will be printed.
   printRightNodes(n.getLeft(),print && (n.getRight()==null?true:false));// if the right kid is empty and there is a left kid is present 
-  if(print || (n.getLeft()==null && n.getRight()==null))
+  if(print && ! (n.getLeft()==null && n.getRight()==null))///  Print only the rightmost  boundary . Leave the leaf nodes
   {
     Sysout.print (n.data+" ");
   }

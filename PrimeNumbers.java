@@ -24,9 +24,10 @@ public void printPrimes(int N)
 		}
 	}
 	//above approach O(loglog n)
-//O(n ) to print out numbers
-for(int i=0;i<prime.length<i++)
-	if(prime[i])
-		System.out.println(prime[i]);
+	//O(n ) to print out numbers
+	for(int i=0;i<prime.length<i++)
+	{	if(prime[i])
+			System.out.println(prime[i]);
 
-
+	}
+}
