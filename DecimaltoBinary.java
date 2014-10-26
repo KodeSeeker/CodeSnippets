@@ -31,6 +31,7 @@ public string decimalToBinary(int num)
 	while(i>=0)
 	{
 	 binary.append(tmp[i]);
+	 i--;	
 	}
 	
 	return binary.toString();
