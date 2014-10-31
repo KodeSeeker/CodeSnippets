@@ -7,7 +7,10 @@ int rotated_binary_search(int A[], int N, int key) {
     int M = L + ((R - L) / 2);
     // Case 0. best case, the element we are looking for is the mid element.
    if (A[M] == key) return M;
- 
+ /*	{
+		break;
+	}
+*/
     //Case 1.
     // the bottom half is sorted
     if (A[L] <= A[M]) {
@@ -24,5 +27,16 @@ int rotated_binary_search(int A[], int N, int key) {
         R = M - 1;
     }
   }
+
+/*
+	//handle duplicates.
+	if(mid!=-1)
+	{
+		while(mid!=-1)
+			mid--;
+		
+		return mid;
+	}
+*/
   return -1;// not found
 }

@@ -59,7 +59,7 @@ public String longestWith2CharactersSubstring(String input)
              lastA=0;
          }
           
-            
+	substringLength++;            
           //now check if the substring formed has greater length than any seen so far
           if(substringLength>maxSubstringLength)
           {

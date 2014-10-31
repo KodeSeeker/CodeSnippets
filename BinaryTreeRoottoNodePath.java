@@ -1,7 +1,6 @@
 
 /**
 Print the path from the root to a node in a binary tree.
-Ebay Inc: 10/17/2014.
 **/
 /**
 Approach: Recursively search  and add to path string

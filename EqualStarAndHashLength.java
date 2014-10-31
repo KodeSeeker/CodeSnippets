@@ -1,4 +1,7 @@
-
+/**
+Given an array containing only stars '*' and hashes '#' . Find longest contiguous sub array that will contain equal no. of stars '*' and hashes '#'. 
+**/
+	
 
 public int longestLength(String in)
 {
@@ -28,7 +31,7 @@ public int longestLength(String in)
   
   HashMap<Integer,Integer> map= new HashMap<Integer,Integer>();//aux[i],i
 
-  int max_dist=0;  
+  int max_dist=-1;;  
   for (int i=0;i<aux.length;i++)
   {
     if(aux[i]==0)
