@@ -44,12 +44,11 @@ private static boolean canBeFormedFromOtherWords(String part, boolean isOriginal
 	for(int i= 0;i< part.length();i++)
 	{
 		String left = part.substring(0,i);
-		String right= part.substring(i.len);
+		String right= part.substring(i,part.length()-1);
 		
 		if( ( map.contains(left) && map.get(left) ==true)  && canBeFormedFromOtherWords(right, false, map)) //check recursively.
 			return true;
 	}
-	map.put(part,true);// prevents repetitions.
+	map.put(part,false);// prevents repetitions.
 	return false; // this compound word doesnt have constituents in the list.
 }
-

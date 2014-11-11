@@ -37,8 +37,10 @@ public void  longestPalindrome(String s)
 			low--;	
 			high++;
 		}
+	}
 	
-		
+	 for (int i=1;i< chars.length;i++)
+	{	
 		// EVEN length ones are centered around i-1 and i.
 		low =i-1;
 		high=i;

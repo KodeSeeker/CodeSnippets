@@ -21,7 +21,7 @@ public boolean canBeBalanced(int [] arr)
 		}
 		else// increase right sum and decrement j
 		{
-			rightSum+=arr[i];
+			rightSum+=arr[j];
 			j--;
 		}
 		//loop will break when i crosses over j;

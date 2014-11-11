@@ -10,7 +10,7 @@ public string getNthColumnName(int N)
   while(N>=0)
   {
     N--;
-    columnName+=char(N%26);
+    columnName+=(char)('A'+N%26);
     N=N/26;
   }
   return columnName;

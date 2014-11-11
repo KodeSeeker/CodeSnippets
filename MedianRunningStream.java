@@ -72,6 +72,6 @@ public int insertIntoMinMaxHeap(Instream in)
      
      
   else
-      return minHeap.peek();
+      return maxHeap.peek();
  }
 }

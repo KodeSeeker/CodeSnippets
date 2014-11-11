@@ -35,7 +35,7 @@ public int[] slidingWindowMax(int[] a,int w)
         while(!dq.isEmpty() && a[dq.getLast()]<a[i])
             dq.pollLast();
         //remove from the front of the dq based on the window movement.
-        while(!dq.isEmpty() && a[dq.getFirst()]<=i-w)
+        while(!dq.isEmpty() && dq.getFirst()<=i-w)
             dq.pollFirst();
         dq.offerLast(i);
      }

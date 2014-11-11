@@ -1,7 +1,6 @@
 
-	
-	public int maxProdsubset(int[] arr)
-	{
+public int maxProdsubset(int[] arr)
+{
 		int maxEndHere=1;
 		int minEndHere=1;
 		int maxSubProduct=0;
@@ -36,6 +35,5 @@
 				maxSubProduct=maxEndHere;
 		}
 		
-		:
 		return maxSubProduct;
-	}
+}

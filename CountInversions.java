@@ -1,35 +1,33 @@
 // Count the number of inversions
 
 //Trick is to use mergesort--> tweak in merge procedure
-int merge(int[] arr, int [] left, int [] right,int )
+int merge(int[] arr, int [] left, int [] right,int mid )
 {
-    
-    int i,j,count;
-    while(i<left.length || j< right.length)
-    {
-        if(j== right.length)// the right array has been completely looked at.
-        {
-            arr[i+j]= left[i];
-            i++;
-        }
-        if(i==left.length)// the left array has been completely looked at.
-        { 
-          arr[i+j]= right[j];
-          j++;
-        }
-        if(left[i] <=right[j])
-        {
-            arr[i+j]=left[i];
-            i++;
-        }
-        else
-        {// we have an inversion!
-            arr[i+j]= right[j];
-            // count them
-            count+= left.length-i;
-            j++;
-        }
-    }
+	int i=0,j=mid,invCount=0,k=0;
+	int[] temp = new int[arr.length];
+	//merge the arrays
+	while (i <mid && j<arr.length-1)
+	{
+		if(left[i]<=right[j])
+		{
+			temp[k++]=left[i++];
+		}
+		else if (right[j]<left[i])// we have an inversion!
+		{
+			invCount += mid-i;
+			temp[k++]=right[j++];
+		}
+	}
+	//copy remaining elements- from left subarray
+	while (i<= mid)
+    		temp[k++]= left[i++]
+	
+   	//copy rest of the elements from right subarray
+	while(j<arr.length-1)
+		temp[k++]=right[j++];
+
+	return invCount;
+}
     
     return count;
     }
@@ -39,8 +37,8 @@ int merge(int[] arr, int [] left, int [] right,int )
         if arr.length<2
             return 0;
         int mid = (arr.length+1)/2;
-        int [] left= Arrays.copyOfRange(arr,0,m);
-        int [] right= Arrays.copyOfRange(arr,m,arr.length);
-        int count =invCount(left)+invCount(right)+merge(arr,left,right);
+        int [] left= Arrays.copyOfRange(arr,0,mid);
+        int [] right= Arrays.copyOfRange(arr,mid,arr.length);
+        int count =invCount(left)+invCount(right)+merge(arr,left,right,mid);
     }
 }
