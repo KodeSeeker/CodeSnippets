@@ -15,25 +15,16 @@ public List<Node> pathToTarget(Node root, Node target, ArrayList<Node> path)
             path.add(target);
             return path;
         }
-    if(root.left==null && root.right==null)// hit a leaf without hitting the target. so discard this branch.
-        return null;
     // apply logic recursively.
     //check left. if left returns null then its not in the left subtree.
    //  pass the right subtree after adding current node to list.
    //else pass the left subtree after adding node to list.
    
-   
-  if( pathToTarget(root.left,target,path)==null)
-  {
-   path.add(root);
-   pathToTarget(root.right, target,path);
+  path.add(root);
+List<Node> left= pathToTarget(root.getLeft(),target, path);
+List<Node> right= pathToTarget(root.getRight(),target, path);
 
-  }  
-  else
-  {
-   path.add(root);
-   pathToTarget(root.left, target,path);
-  }
+	if(left==null)? return left:return right;
 }
 
 
