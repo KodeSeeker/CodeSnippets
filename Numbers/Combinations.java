@@ -20,7 +20,7 @@ printCombinations(arr,n,r,0,data,0);
 
 //i is the index in the array.
 //dataIdx is the index in data.
-public static void printCombinations(int[] arr, int n, int r, int dataIdx,int [] data, int i)
+public static void printCombinations(int[] arr, int n, int idx,int [] data, int r,int dataIdx)
 {
 
 	if(dataIdx==r)
@@ -29,12 +29,17 @@ public static void printCombinations(int[] arr, int n, int r, int dataIdx,int []
 			System.out.print(data[i]);
 		System.out.println();
 	}
-	if(i>=r)
-		return;// exit condition.
-	data[dataIdx]= arr[i];
-	//include current element and recurse
-	printCombinations(arr,n,r,dataIdx++,data,i++);
-	//exclude current element.
-	printCombinations(arr,n,r,dataIdx,data,i++);
+	if(dataIdx>r)
+		return;
+	data[dataIdx]=arr[idx];//create a buffer to hold a combination.
+
+	//exclude current element from placeholder.
+
+	printCombinations(arr,n,idx+1,data,r,dataIdx+1);
+	
+
+	//include current element in placeholder
+	printCombinations(arr,n,idx+1,data,r,datIdx);
+
 }
 

@@ -74,13 +74,14 @@ public String minimumWindow(String S, String T)
 		minWindowStart=begin;
 		minWindowEnd= end;
 		minLength=length;
+		count =0;
 	}
 
 		end++;//update end for while
 	}
 
 
-	if(count==TLen)// we have a minm window containing T
+	if(minLength==TLen)// we have a minm window containing T
 	{
 		return S.substring(minWindowStart,minWindowEnd+1);
 	}
@@ -89,4 +90,4 @@ public String minimumWindow(String S, String T)
 	return null;
 
 }
-	// if new 
+

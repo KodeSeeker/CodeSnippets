@@ -10,7 +10,7 @@ public class AdvancedQueue
 {
     public List<Integer> main= new ArrayList<Integer>();
     public List<Integer> min= new ArrayList<Integer>();// because queue in Java doesnt allow to remove at an index
-    
+   
     
     public void push_rear( int n)
     {

@@ -22,14 +22,14 @@ http://d2o58evtke57tz.cloudfront.net/wp-content/uploads/dist.png
    { 
     return level;
    }
- int downlevel;
+ int distance;
  
- downlevel=getDistanceFromRoot(root.getLeft(),value,level+1);
- if(downlevel!=0)// we hit our value while going down left!
-  return downlevel;
- downlevel=getDistanceFromRoot(root.getRight(),value,level+1);
+ distance=getDistanceFromRoot(root.getLeft(),value,level+1);
+ if(distance!=0)// we hit our value while going down left!
+  return distance;
+ distance=getDistanceFromRoot(root.getRight(),value,level+1);
  
- return downlevel;
+ return distance;
  }
   
   public int getDist(Node root, int value1, int value2)
@@ -47,7 +47,7 @@ public Node LCA( Node root, int value1, int value2)//value 1 and value2 should b
 	if (root.value == value1 || root.value ==value2)
 		return root;
 	Node left = LCA (root.getLeft(),value1, value2);
-	Node right= LCA(root.getRight(),value1,value2);)
+	Node right= LCA(root.getRight(),value1,value2);
 	if (left ! =null && right !=null)	
 		return root; // value 1 and value 2 are on either side.
 	if(left	==null)
