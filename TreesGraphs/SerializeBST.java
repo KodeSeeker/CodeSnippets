@@ -30,8 +30,6 @@ public Node deSerializeTree( Node root,FileStream fin)
 
 public void  deSerializeTree(Node root,int val, int min,int max)
 {
-	if(root ==null)
-		return;
 	if(val>min && val<max)
 	{
 		root = new Node(val);

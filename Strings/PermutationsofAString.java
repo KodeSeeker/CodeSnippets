@@ -1,5 +1,4 @@
 
-
 public void permute ( String s)
 {
     if(s==null)
@@ -20,11 +19,11 @@ private void permuteHelper(char[] sArray,boolean[] used, int len, int count,Stri
         return;
     }
     
-    for(int i=0;i<in.length;i++)
+    for(int i=0;i<sArray.length;i++)
     {
         if(used[i])
             continue;
-        out.append(in[i]);
+        out.append(sArray[i]);
         used[i]=true;
         permuteHelper(sArray,used,len,count+1,out);
         used[i]=false;// to pick up character in next iteration

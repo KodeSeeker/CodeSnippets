@@ -17,7 +17,7 @@ Point where k==0, the node returned will be kth smallest element
 NOTE: Algo same for kth largest Element, invert left and right.
 
 */
-public void Node findKthSmallestElement(Node root, int k)
+public Node findKthSmallestElement(Node root, int k)
 {
   
   // Stack to hold the traversal.
@@ -56,5 +56,36 @@ public void Node findKthSmallestElement(Node root, int k)
   }
   
   return kthSmall;
-  
+ }
+
+// Kth Smallest element BST. Simplified Approach.
+public void  findKthSmallestElementBST(Node root)
+{
+	
+	if(root == null)
+		return;
+	Node curr= root;
+	Stack<Node> st = new Stack<Node>():
+	st.push(curr);
+	while((curr !=null)|| !(st.isEmpty())
+	{
+		if(curr!=null)
+		{
+			//keep going left.
+			st.push(curr);
+			curr= curr.getLeft();
+		}
+		
+		else
+		{
+			
+			curr= st.pop();
+			if(k==0)
+				System.out.print(" Kth largest node is "+curr.data);
+			k--;
+			
+			curr= curr.getRight();
+		}
+	}
 }
+

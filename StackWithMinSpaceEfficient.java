@@ -20,7 +20,7 @@ It does not store duplicate minimums, and as we are looking only for the lowest 
     */
       public Integer pop() {
         int value = super.pop();// pop from the main stack
-        if (value == min()) {
+        if (value == min.peek()) {
          min.pop();// pop from the min stack.
         }
         return value;

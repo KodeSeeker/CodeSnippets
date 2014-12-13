@@ -7,6 +7,10 @@ Output
 Geeksfor geeks:
 http://www.geeksforgeeks.org/sum-of-two-linked-lists/
 
+This  approach involving persisting the carry as a global. This value may mess up in multi threaded access.
+Simpler approach: Reverse both lists and add them from the front. 
+
+
 **/
 
 
@@ -51,7 +55,7 @@ public class AddLists
 			}
 			//now both the lists are the same size.
 			
-			Node tmpSum=addLinkedListNumbersSameSize(tmp,head2);
+			Node tmpSum=addLinkedListNumbersSameSize(tmp,head2,0,result);
 			//carry, class variable.
 			if(carry==0)
 				return tmpSum;
@@ -95,4 +99,66 @@ public Node addCarryToRemaining(int carry, Node head1, Node tmpSum)
 }
 
 
+public Node  addUsingReverse(Node head1, Node head2 )
+{
+	if(head1==null && head2 ==null)
+		return null;
+	if(head1==null)
+		return head2;
+	if(head2==null)
+		return head1;
+
+	int len1= getLength(head1);
+ 	int len2= getLength(head2);
+	int maxLen= Math.max(len1,len2;
+
+	//Pad zero to the the one with smaller length.
+	//make head1 the smaller one always .
+	if(len2<len1)
+	{
+	Node tmp = head1;
+	head1=head2;
+	head2=tmp;
+	}
+	//Pad zero to head1
+	int count=0;
+	Node temp= head1;
+	while(head1.next!=null)
+	{
+	 head=head.next;
+	 count++;
+	}
+	while(count<maxLen)
+	{
+		Node n = new Node (0);
+		head1.next=n;
+	}
+	//head1 is padded with zeros.
+	//and both are of the same length.
+	
+	Node rev1= reverse(temp);
+	Node rev2=reverse(head2);
+	Node result;
+	int sum=0;
+	int carry=0;
+	while(rev1!=null && rev2!=null)
+	{
+		sum=rev1.data+rev2.data+carry
+		carry=sum/10;
+		sum%=10;
+		result.data=sum;
+		rev1=rev1.next;
+		rev2=rev2.next;
+		result=result.next;
+	}
+	
+	//check for any left over carry.
+
+	if (carry==1)
+	{
+	 result. next =new Node(1);
+	}
+
+
+	return reverse(result);
 }

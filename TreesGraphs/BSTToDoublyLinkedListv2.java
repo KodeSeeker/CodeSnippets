@@ -32,6 +32,6 @@ public void convertBSTToDLL(Node n, Node head,Node prev)
 	head.left=n;
 	n.right=head;
 	prev=n;
-	convertBSTToDLL(r,prev,head);
+	convertBSTToDLL(r,head,prevd);
 	
 }

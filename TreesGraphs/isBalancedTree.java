@@ -13,7 +13,7 @@ public boolean isBalancedTree(Node root)
 		int left =getHeight(root.getLeft());
 	if(root.getRight()!=null)
 		int right=getHeight(root.getRight());
-	return (Math.abs(left-right) && isBalancedTree(root.getRight()) && isBalancedTree(root.getLeft()));
+	return (Math.abs(left-right)<=1 && isBalancedTree(root.getRight()) && isBalancedTree(root.getLeft()));
 }
 
 public int getHeight(Node root)
