@@ -10,12 +10,12 @@ public class HelloWorld{
     {
   	int leftSum = a[0];
 		int rightSum = 0;;
-		for(int i=0; i<a.length;i++)//notice we start from 2nd as 1st value is set
+		for(int i=0; i<a.length;i++)
 			rightSum += a[i];//each sum is sum of previous sum plus current value
 		
 		for(int i=0; i<a.length;i++)
 		{
-			leftSum+=a[i];
+			rightSum-=a[i];
 			if(leftSum==rightSum)
 				return i;// balancing point.-Return!
 			leftSum+=a[i];
