@@ -30,6 +30,8 @@ public boolean isCousin( Node root, Node a ,Node b)
 
 public boolean isSibling(Node root, Node a, Node b)
 {
+	if(root == null)
+		return false; // root is null only when entire tree has been inspected and still no sibling !
 	return((root.getLeft().data==a.data &&root.getRight().data==b.data)|| (root.getRight().data==a.data && root.getLeft().data==b.data) 
 										|| isSibling(root.getRight(),a,b) || isSibling(root.getLeft(),a,b));
 }

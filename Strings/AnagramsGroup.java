@@ -10,7 +10,7 @@ public void groupAnagrams( String in)
     HashMap<String,List<String>> map = new HashMap<String,List<String>>();
     
     String [] str= in.split(,);
-    
+    List<String> strList;    
     for (String s : str)
     {
         String tmp=s;
@@ -18,12 +18,15 @@ public void groupAnagrams( String in)
         
         Arrays.sort(schars);// sorted each string. 
         String newStr=new String(schars);
-        List<String> strList= new ArrayList<String>();
         if(map.contains(newStr))
         {
             strList= map.get(newStr);
             
         }
+	else
+	{
+		strList= new ArrayList<String>();
+	}
        strList.append(tmp);
        map.put(newStr,strList);
         
@@ -56,7 +59,7 @@ public groupAnagrams(String str)
         int[] charMap= getCharMap(s);
         List<Integer> charList= Arrays.asList(charMap);
         List<String> strList= new ArrayList<String>();
-        if(map.contains(newStr))
+        if(map.contains(charList))
         {
             strList= map.get(charList);
             

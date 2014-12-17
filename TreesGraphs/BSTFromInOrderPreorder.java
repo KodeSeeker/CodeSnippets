@@ -4,7 +4,7 @@
 **/
 
 //returns the node of the bst
-public Node (int[] preOrder,int[] inOrder,int preIndex,int startIn,  int endIn)
+public Node buildBST(int[] preOrder,int[] inOrder,int preIndex,int startIn,  int endIn)
 {
 	if(startIn>endIn)
 		return null;
@@ -20,8 +20,8 @@ public Node (int[] preOrder,int[] inOrder,int preIndex,int startIn,  int endIn)
 	
 	//create the left and right subtrees recursively.
 	
-	root.setLeft(preOrder,inOrder,preIndex,startIn,idx-1);
-	root.setRight(preOrder,inOrder,preIndex,idx+1,endIn);
+	root.setLeft(buildBST(preOrder,inOrder,preIndex,startIn,idx-1));
+	root.setRight(buildBST(preOrder,inOrder,preIndex,idx+1,endIn));
 	
 	return root;
 }

@@ -14,7 +14,7 @@ int merge(int[] arr, int [] left, int [] right,int mid )
 		}
 		else if (right[j]<left[i])// we have an inversion!
 		{
-			invCount += mid-i;
+			invCount += mid-i;  // key statement.
 			temp[k++]=right[j++];
 		}
 	}
@@ -34,11 +34,12 @@ int merge(int[] arr, int [] left, int [] right,int mid )
     
     int invCount(int [] arr)
     {
-        if arr.length<2
+        if (arr.length<2)
             return 0;
         int mid = (arr.length+1)/2;
         int [] left= Arrays.copyOfRange(arr,0,mid);
         int [] right= Arrays.copyOfRange(arr,mid,arr.length);
-        int count =invCount(left)+invCount(right)+merge(arr,left,right,mid);
+        return invCount(left)+invCount(right)+merge(arr,left,right,mid);
+	 
     }
 }

@@ -7,7 +7,7 @@
 
 //post Index =postOrder.length-1;
 
-public Node (int[] postOrder,int[] inOrder,int postIndex,int startIn,  int endIn)
+public Node buildFromPost (int[] postOrder,int[] inOrder,int postIndex,int startIn,  int endIn)
 {
 	if(startIn>endIn)
 		return null;
@@ -23,8 +23,8 @@ public Node (int[] postOrder,int[] inOrder,int postIndex,int startIn,  int endIn
 	
 	//create the left and right subtrees recursively.
 	
-	root.setLeft(postOrder,inOrder,preIndex,startIn,idx-1);
-	root.setRight(postOrder,inOrder,preIndex,idx+1,endIn);
+	root.setLeft(buildFromPost(postOrder,inOrder,postIndex,startIn,idx-1);
+	root.setRight(buildFromPost(postOrder,inOrder,postIndex,idx+1,endIn));
 	
 	return root;
 }

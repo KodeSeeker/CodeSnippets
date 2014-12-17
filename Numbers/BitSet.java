@@ -1,4 +1,4 @@
-/**
+**
 Given a range of numbers , find the missing numbers using the least amount of memory. ie. use a BitSet.
 **/
 
@@ -15,7 +15,7 @@ public class BitSet
 	//sets a number in the bitset
 	public void set(int num)
 	{
-		int wordNumber= num>>5;// divide by 5
+		int wordNumber= num>>5;// divide by 32
 		int bitPos= num & 0x1F;// bitwise and 32 to find the bit.
 		bitset[wordNumber] | = 1<<bitPos;
 	}

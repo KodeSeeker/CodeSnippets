@@ -15,22 +15,24 @@ public boolean sameBSTs(int[] bst1Arr, int[] bst2Arr)
 {
 	if(bst1Arr[0]!=bst2Arr[0])
 		return false;
+	if(bst1Arr.length!=bst2Arr.length)
+		return false;
 	//iterate through the first array
 	int[] lessThanRoot= new int[bst1Arr.length];
 	int[] biggerThanRoot=new int[bst1Arr.length];
-	int less,more,root=bst1Arr[0];
+	int less1,more1,root=bst1Arr[0];
 
 	for(int i=1,i<bst1Arr.length;i++)
 	{
-		if(i>root)
+		if(bst1Arr[i]>root)
 		{
-			biggerThanRoot[more]=i;
+			biggerThanRoot[more1]=bst1Arr[i];
 			more1 ++;
 			continue;
 		}
-		if(i<root)
+		if(bst1Arr[i]<root)
 		{
-			lessThanRoot[less]=i;
+			lessThanRoot[less]=bst1Arr[i];
 			less1++;
 		}
 		
@@ -41,19 +43,18 @@ public boolean sameBSTs(int[] bst1Arr, int[] bst2Arr)
         int less2,more2,root=bst2Arr[0];
 
 
-
 	// now check with the second array.
 	for(int i=1,i<bst2Arr.length;i++)
 	{
 		 if(bst2Arr[i]>root)
                 {
-                        biggerThanRoot2[more2]=i;
+                        biggerThanRoot2[more2]=bst2Arr[i];
                         more2 ++;
                         continue;
                 }       
-                if(i<root)
+                if(bst2Arr[i]<root)
                 {
-                        lessThanRoot2[less2]=i;
+                        lessThanRoot2[less2]=bst2Arr[i];
                         less2++;
                 }
 
@@ -62,7 +63,7 @@ public boolean sameBSTs(int[] bst1Arr, int[] bst2Arr)
 
 	for(int j=0;j<biggerThanRoot1.length;j++)
 	{
-		if(biggerThanRoot1[j]!=bigggerThanRoot2[j])
+		if(biggerThanRoot1[j]!=biggerThanRoot2[j])
 			return false;
 	}
 
@@ -74,3 +75,5 @@ public boolean sameBSTs(int[] bst1Arr, int[] bst2Arr)
 
 	//meets condition at this point so return true;
 	return true;
+}
+

@@ -39,7 +39,7 @@ public int getMin()
 {
   if(minstk.isEmpty())
     return -1;
-  return minstk.pop();
+  return minstk.peek();
 }
 
 }
