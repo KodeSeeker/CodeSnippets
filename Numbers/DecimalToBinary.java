@@ -73,3 +73,66 @@ public String returnBinary(double num)
   }
   return binary.toString();
 }
+
+
+/** Composite program to handle a number that has both integer and fractional part and returns the binary representation.
+**/
+
+public String returnBinaryOfDouble(double num)
+{
+	if(num<0)
+	{
+		num=-num;// ignore negative sign as it requires 2's complement.
+	}
+	
+
+	String rep = String.valueOf(num);
+	
+	int decPos= rep.indexOf(".");
+	
+	
+	if(decPos!=-1)
+	{
+		int intPart= Integer.parseInt(rep.substring(0,pos));//19
+		double  decPart = Integer.parseInt(rep.substring(pos));//.25
+	}
+	
+	else
+	{ // without decimal part
+		int intPart= Integer.parseInt(rep);
+		double decPart =0;
+	}
+
+	//handle int part using general algorithm
+
+	StringBuilder binaryInt= new StringBuilder();
+	
+	while(intPart>0)
+	{
+		binaryInt.append(intPart%2);
+		intPart/=2;
+	}
+	binaryInt = binaryInt.reverse();
+	
+	
+	StringBuilder binaryDec= new StringBuilder();
+/** Approach for decimal part- Keep checking wrt part>0, if 2* part >=1 , then append 1 and sub 1 from num else append 0.
+*/	
+	while(decPart>=0)
+	{
+		if(binaryDec.size()>32)
+			throw new IllegalArgumentException("Decimal Part is too large to parse");
+		decPart*=2;
+		if(decPart>=1)
+		{
+			binaryDec.append("1");
+			decPart-=1;
+		}
+		else
+		{
+			binaryDec.append("0");
+		}
+	}
+	
+	return binaryInt+"."+binaryDec;
+}

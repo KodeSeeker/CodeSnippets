@@ -19,7 +19,7 @@ Use bit wise approach.
 
 public int getElementOccuringOnce(int[] in)
 {
-	if(in.isEmpty||in==null)
+	if(in.length<3||in==null)
 	{
 		throw new IllegalArgumentException();
 	}
