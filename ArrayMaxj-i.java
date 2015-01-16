@@ -1,3 +1,8 @@
+
+/*Given an array arr[], find the maximum j – i such that arr[j] > arr[i].
+
+*/
+
 /*
  Input: {34, 8, 10, 3, 2, 80, 30, 33, 1}
   Output: 6  (j = 7, i = 1)
@@ -32,7 +37,7 @@ public  int  arrayMaxJ-I(int [] arr)
   
   // do the comparison
   int i=0;j=0;
-  int maxdiff=-1;// init as -1:as maxDiff can also be 0 if j=i.
+  int maxdiff=-1;// init as -1:as maxDiff can also be 0 if j=i (for all descending case).
   while(i<len && j<len)
     {
       if(LMin[i]< RMax[j])

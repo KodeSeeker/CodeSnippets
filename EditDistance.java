@@ -10,7 +10,7 @@ public class EditDistance{
  public static int[] [] memo;// to track the edit distance so far.
  
  public static int getEditDistance (String s1, String s2)
- {
+ :w{
   if(a==null || b==null)
    return 0;
   int len1 = s1.length();
@@ -28,11 +28,11 @@ public class EditDistance{
       memo[0][j]=j;// build the matrix for len1 =0 ie. len2 insertions.
   }
   
-  for(int i=1;i< =len1;i++)
+  for(int i=1;i< len1;i++)
   {
-      for(int j=1;j< =len2;j++)
+      for(int j=1;j< len2;j++)
       {
-           if (s1.charAt(i-1)== s2.charAt(j-1))// if the last character seen so far matches 
+           if (s1.charAt(i)== s2.charAt(j))// if the last character seen so far matches 
            {
                sol1=memo[i-1][j-1];
                memo[i][j]=sol1;

@@ -30,7 +30,7 @@ public boolean findTwoNodesThatSumUptoK(Node root,int k)
 		}
 		if(sum <k)
 		{
-			root= get_InOrderSuccessor(root, max);
+			root= get_InOrderSuccessor(root, min);
 			min=root.data;
 		}
 	}
@@ -38,7 +38,103 @@ public boolean findTwoNodesThatSumUptoK(Node root,int k)
 	return false;
 }
 
+
+
+/**
+Get Min 
+
+*/
+//returns the left most node value in BST.
+public int getMin(Node root) {
+
+	 while(root.getLeft()!=null) {
+		root=root.getLeft();
+}
+	return root;
+}
+
+/**
+Get MAX.
+**/
+
+//returns the max element from the BST.
+
+public int getMax(Node root) {
+	
+	while(root.getRight()!=null) {
+		root=root.getRight();
+}
+
+	return root;
+}
+
+
+
 /**
 In order successor
 **/
+
+ public Node get_InOrderSuccessor(Node root, Node value) {
+
+{	Node succ;
+	if(value.getRight()!=null)
+	{
+		//smallest element on the right side.
+		succ = getMin(value.getRight());
+	
+	}
+
+
+ 	else
+	{
+		//need to search for succ from root.
+		while(root!=null)
+		{
+			if(root.data< value.data)
+				root=root.getRight();
+			else if(root.data>value.data)// root could be a succ
+			{
+				succ=root;
+				root=root.getLeft();
+			}
+			else
+				break; // found value without finding succ- so no succ!
+
+		}
+	}
+	
+	return succ;
+}
+
+
+
+public Node get_InOrderPredecessor(Node root, Node value)
+{
+	Node pred;
+	// largest on left side if it exists.
+	if(value.getLeft()!=null)
+	{
+		pred=getMax(value.getLeft());
+	}
+	
+	else
+	{// search for value from root. Updating pred
+		while(root!=null)
+		{
+			if(root.data>value.data)
+				root.root.getLeft();
+			else if (root.data<value.data)// root possibly a predecessor.
+			{
+				pred=root;
+				root=root.getRight();
+			}
+			else
+				break;
+		}
+	}
+	
+	return pred;
+}
+
+			
 

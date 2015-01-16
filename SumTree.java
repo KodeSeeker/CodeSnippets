@@ -58,45 +58,61 @@ if right child:  leaf
 if right child: non- leaf
   left-child :  leaf
    root.data=  2* right+ left;
+LOGIC :
+
+
+Right child  : non-leaf
+Left child   : non-leaf
+  root->data==2*root->left->data + 2*root->right->data.
+
+Right child  : leaf
+Left child   : leaf 
+ root->data==root->left->data + root->right->data.
+
+Right child  : leaf
+Left child   : non-leaf
+ root->data==2*root->left->data + root->right->data.
+
+Right child  : non-leaf
+Left child   : leaf
+ root->data==root->left->data + 2*root->right->data.
+
 */
 
 boolean isLeaf(Node node)
 {
-  if(n==null|| (n.getLeft()== null && n.getRight()== null))
+  if (node.getLeft()== null && node.getRight()== null)
   {
     return true;
     
   }
   return false;
 }
-public boolean isSumTree(Node root)
+
+
+static boolean isSumTree(Node root)
 {
- 
- if(root == null)
-    return true;
- if(isLeaf(root))
-  return true;
- Node left = root.getLeft();
- Node right= root.getRight();
- int sum=0;
- if(left!=null)
- {
-   sum+= left.data;
-   if(!isLeaf(left))
-      sum+=left.data;
-   
- }
- if(right!=null)
- {
-   sum+= right.data;
-   if(!isLeaf(right))
-      sum+=right.data;
-   
- }
- if(root.data != sum)
-  return false;
- if(!isSumTree(root.getLeft()) || !isSumTree(root.getRight()))
-  return false;
- return true;  
-  
+	if(root ==null || isLeaf(root))
+		return true;
+	int leftSum=0;
+	int rightSum=0;
+	//handle left child
+	if(root.getLeft()!=null)
+	{
+	 leftSum=root.getLeft().data;
+	
+		if(!isLeaf(root.getLeft()))// double leftsum;
+			leftSum*=2;
+	}
+	
+	//handle right child
+	if(root.getRight()!=null)
+	{
+		rightSum=root.getRight().data;
+		
+		if(!isLeaf(root.getRight()))//double rightsum;
+			rightSum*=2;
+	}
+
+	return ( (root.data== leftSum+rightSum) &&(isSumTree(root.getRight()) && isSumTree(root.getLeft())));
 }

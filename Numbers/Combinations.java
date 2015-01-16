@@ -33,12 +33,11 @@ public static void printCombinations(int[] arr, int n, int idx,int [] data, int 
 		return;
 	data[dataIdx]=arr[idx];//create a buffer to hold a combination.
 
-	//exclude current element from placeholder.
-
+	//include  current element in placeholder to create a combination and move dataIdx forward to include next element.
 	printCombinations(arr,n,idx+1,data,r,dataIdx+1);
 	
 
-	//include current element in placeholder
+	//overwrite current element in placeholder with next element from array by not incrementing it.
 	printCombinations(arr,n,idx+1,data,r,datIdx);
 
 }

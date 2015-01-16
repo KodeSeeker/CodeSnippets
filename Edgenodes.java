@@ -29,6 +29,7 @@ public void printOuterNodes(Node root)// wrapper
 {
   if (root==null)
     return;
+ System.out.print(root.data+ " ");
   printLeftNodes(root.getLeft(),true);
   printLeafNodes(root);
   printRightNodes(root.getRight(),true);
@@ -40,7 +41,7 @@ public void printLeftNodes(Node n,boolean print)// print variable decides whethe
   //Pre-rder traversal
   if(n==null)
     return;
-  if(print && !(root.getLeft()==null && root.getRight()==null ))//  Print only the leftmost boundary . Leave the leaf nodes
+  if(print && !(n.getLeft()==null && n.getRight()==null ))//  Print only the leftmost boundary . Leave the leaf nodes
   {
     Sysout.print(root.data + " ");
   }
@@ -99,9 +100,9 @@ public void printLeftNodes(Node n,boolean print)// print variable decides whethe
   //Pre-rder traversal
   if(n==null)
     return;
-  if(print && ! (root.getLeft()==null && root.getRight()==null ))///  Print only the leftmost boundary . Leave the leaf nodes
+  if(print && ! (n.getLeft()==null && n.getRight()==null ))///  Print only the leftmost boundary . Leave the leaf nodes
   {
-    Sysout.print(root.data + " ");
+    Sysout.print(n.data + " ");
   }
   printLeftNodes(n.getLeft(),print);// the left kid of  a left child should be printed
   printLeftNodes(n.getRight(),print&&n.getLeft()== null?true:false); // if there is no left kid and only a right kid is present

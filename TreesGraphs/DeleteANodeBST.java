@@ -4,9 +4,9 @@ Deleting a node from a BST has 3 specific conditions. Can be combined with searc
 **/
 public class  BST
 {
-public Node parent=null;
 
-public boolean deleteNodeBST(Node root, int target)
+
+public boolean deleteNodeBST(Node root, int target,Node parent)//initially parent is null
 {
 
     if(root ==null)
@@ -44,14 +44,13 @@ public boolean deleteNodeBST(Node root, int target)
                     parent.setLeft(root.left);
                 return true;
             }         
-            
-            parent=root;
+         }   
             
             if(target<root.data)
-                return deleteNodeBST(root.left,target);
+                return deleteNodeBST(root.left,target,root);
             if(target>root.data)
-                deleteNodeBST(root.right,target);
-    }
+                deleteNodeBST(root.right,target,root);
+    }  
     
     
     public Node getMaxValueLeftSideAndDelete(Node n)

@@ -36,7 +36,7 @@ public class Justify {
 			//how many spaces to each gap? gapCount/numofSpacestobeAdded
 			int numofSpacesToEachGap=gapCount/numOfSpacesToBeAdded;
 			//leftoverspaces 
-			numOfSpacesToBeAdded+=gapCount%numOfSpacesToBeAdded;
+			numOfSpacesToEachGap+=gapCount%numOfSpacesToBeAdded;
 			//add the extra spaces after each word
 			String[] words= line.split("//s+");
 			StringBuilder justifiedText= new StringBuilder();

@@ -9,7 +9,7 @@ public static int findIndex(String str,int begin, int end, Map<Integer,String> d
   String midString= dict.get(mid);
   
   if(str.equalsIgnoreCase(midString))
-    return midString;
+    return mid;// the index.
   else if(midString.compareToIgnoreCase(str)>0)
     return findIndex(str,0,mid,dict);
   else
