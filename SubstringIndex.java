@@ -23,6 +23,8 @@ public int  subStringIndex(String  in,String pattern)
      matchIndex=tmp;// pattern inspected completely.
      
    }
+	i++;
+
   }
   
   return matchIndex;

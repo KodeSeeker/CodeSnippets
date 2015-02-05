@@ -4,7 +4,7 @@ Pots of gold game: Two players A & B. There are pots of gold arranged in a line,
 The idea is to find an optimal strategy that makes A win knowing that B is playing optimally as well. How would you do that? 
 **/
 
-public int max_coin( int[] coins , int start, int end)
+public int max_coin( int[] coins , int start, int end,Map<CustomStartEndObject,Integer> map)
 {
 
 	//assume the players pick off the end of an array.
@@ -17,15 +17,15 @@ public int max_coin( int[] coins , int start, int end)
 	//added to remove recursive calls.
 	CustomStartEndObject ob= new CustomStartEndObject(start,end);
 	if map.containsKey(ob)
-		return map.get(ob);//returns the index if its already been looked at
+		return map.get(ob);//returns the value for the  index if its already been looked at
 	// end add
 	
-	int pick_from_start= coins[start] + Math.min(max_coin(coins,start+1,end-1),max_coin(coins,start+2,end));//  pick the coin from start and 
+	int pick_from_start= coins[start] + Math.min(max_coin(coins,start+1,end-1,map),max_coin(coins,start+2,end,map));//  pick the coin from start and 
 														//	take the minimum for B based on whether the last or the first is less.
-	int pick_from_end= coins[end]+Math.min(max_coin(coins,start+1,end-1),max_coin(coins,start,end-2));//  pick the coin from end
+	int pick_from_end= coins[end]+Math.min(max_coin(coins,start+1,end-1,map),max_coin(coins,start,end-2,map));//  pick the coin from end
 														//take the minimum for B based on whether the last or the first is less..
 	//return the max of above 2 so that it maximizes A's result.
-
+	// Possible Q If B maximises his return each time why do we pick min? reason: B will try to maximize his own gain when he plays .
 	int max_coin_valueforA=Math.max(pick_from_start,pick_from_end);
 	//populate map to prevent recursive call.
 	CustomStartEndObject lookupob= new CustomStartEndObject(start,end);

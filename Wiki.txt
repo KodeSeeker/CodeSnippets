@@ -79,3 +79,14 @@ Example: A Library contains students and books. Relationship between library and
 
 http://www.coderanch.com/t/522414/java/java/Association-Aggregation-Composition-- Good example
 
+
+Process vs Thread
+
+http://stackoverflow.com/questions/1762418/process-vs-thread
+Threads share the same memory. Process does not. 
+Segments of a program : Data, Code, Stack and Heap. 
+threads share all segments except the stack. Threads have independent call stacks, however the memory in other thread stacks is still accessible and in theory you could hold a pointer to memory in some other thread's local stack frame (though you probably should find a better place to put that memory!).
+
+
+28. What is the Liskov substitution principle? (answer)
+Liskov substitution principle is one of the five principle introduced by Uncle Bob as SOLID design principles. It's the 'L' in SOLID. Liskov substitution principle asserts that every sub type should be able to work as proxy for parent type. For example, if a method except object of Parent class then it should work as expected if you pass an object of Child class. Any class which cannot stand in place of its parent violate LSP or Liskov substitution principle. This is actually a tough question to answer and if you does that you end up with creating a good impression on interviewers mind.

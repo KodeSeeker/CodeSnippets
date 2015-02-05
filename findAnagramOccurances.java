@@ -13,7 +13,7 @@ public static int findOccurances(String word, String text)
   while(j<text.length())
   {
     char c=text.charAt(j);
-    if(txtMap.contains(c))
+    if(txtMap.containsKey(c))
       txtMap.put((c), map.get(c)+1);
     else
        txtMap.put((c),1);
@@ -33,14 +33,16 @@ public static int findOccurances(String word, String text)
   return count;
   
 }
-  
-  public static Map<Character,Integer> createMap(String in)
+  /**
+ 	Method that creates a word map for a given word.
+**/
+   static Map<Character,Integer> createMap(String in)
   {
-    Map<Character,Integer> map=new HashMap<Character,Integer)();
+    Map<Character,Integer> map=new HashMap<Character,Integer>();
     char[] chars= in.tocharArray();
     for( Character c:chars)
     {
-      if (map.contains(c))
+      if (map.containsKey(c))
         map.put(c,map.get(c)+1);
       else
         map.put(c,1);

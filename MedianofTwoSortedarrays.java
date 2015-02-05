@@ -28,7 +28,7 @@ public int getMedian (int[]arr1,int start1,int end1,  int [] arr2, int start2, i
 	if(arr1.length==1)
 		return (arr1[0] + arr2[0])/2;
 	if (arr1.length==2)
-		return (Mat.max(arr1[0],arr2[0])+ Math.min(arr1[1],arr2[1]))/2;
+		return (Math.max(arr1[0],arr2[0])+ Math.min(arr1[1],arr2[1]))/2;
 	else
 	{
 		int m1= median(arr1);// function that computes median of arr1 independently.

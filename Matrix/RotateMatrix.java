@@ -7,9 +7,9 @@ Based on the fact that mat[i][j] becomes mat[n-1-j][i]
 public void rotateMatrix(int [] [] in)
 {
 
-for(int i=0;i<in.length;i++)
+for(int i=0;i<in.length/2;i++)
 {
-	for(int j=0;j<in[0].length;i++)
+	for(int j=0;j<Math,ceil(in[0].length)/2;i++)
 	{
 		int temp= in[i][j];//store in temp variable
 		in[i][j]=in[n-1-j][i];
