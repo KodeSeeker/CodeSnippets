@@ -16,7 +16,7 @@ private Stack<Integer> minstk=new Stack<Integer>();
 //
 public void push(int input)
 {
-  if(minstk.isEmpty()|| (x<minstk.top() )
+  if(minstk.isEmpty()|| (x<minstk.peek() )
     minstk.push(input);
   //push into normal stk anyways
   normalstk.push(input);
@@ -28,7 +28,7 @@ public int pop()
   if normalstk.isEmpty()
     return -1; //stk is empty
   int ret=normalstk.pop();
-  if(ret==minstk.top())
+  if(ret==minstk.peek())
     minstk.pop();//pop from minstk as well!
   return ret;
 }

@@ -1,7 +1,7 @@
 /**
 Write a program that takes a nested linked list and returns the sum of each node on the linked list weighted by depth.
 **/
-//caller will be weightedSum(in,0); 
+//caller will be weightedSum(in,0,0); 
 public int weightedSum(List<Node> in, int depth,int sum)
 {
 	if(in==null)

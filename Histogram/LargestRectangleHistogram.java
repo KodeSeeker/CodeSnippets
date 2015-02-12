@@ -1,46 +1,50 @@
-	/**
-	 * 
-	 * @param arr
-	 * @return largest area
-	 */
-	public int largestAreaHistogram(int[] arr)
-	{
-		Stack<Integer> hists= new Stack<Integer>();
-		Stack<Integer> indexes= new Stack<Integer>();
-		
-		if(arr.length==1)
-			return arr[0];
-		int largestArea=Integer.MIN_VALUE;
-		int tmpArea;
-		
-		//inspect histogram
+/**
+Find the largest rectangle area in  histogram .
+Simply use a stack to persist the index of all the heights in the stack in descending order .Calc max height
+whenever you need to push a index with lesser height on the stack. 
+**/
 
-		for(int i=0;i<arr.length;i++)
-		{
-			//if value seen is greater than any seen yet, push value and index onto respective stacks
-			if(arr[i]> hists.peek() || hists.isEmpty())
-			{
-				hists.push(arr[i]);
-				indexes.push(arr[i]);
-			}
-			
-			else if(arr[i]<hists.peek())
-			{
-				 int lastIndex=0;
-				 
-				 while(!hists.isEmpty() && hists.peek() >arr[i])
-				 {
-					 //remove all values that are less than the current  value and compute the area.
-					 lastIndex= indexes.pop();
-					 tmpArea= (lastIndex-i)*hists.pop();
-					 if(tmpArea>largestArea)
-						 largestArea=tmpArea;
-				 }
-				 // add current index and hist to stacks.
-				 hists.push(arr[i]);
-				 indexes.push(i);
-			}			
-		}
+
+int findMaxAreaHistogram(int[] hists) {
+
+	if(hists == null)
+		return -1;
+
+	Stack<Integer> indexes = new Stack<Integer>();
+
+	//inspect every integer of hist.
+	for( int i=0;i<hists.length; i++) {
 		
-		return largestArea;
+		 if(indexes.isEmpty() || hist[i] >hists[indexes.peek()] {
+			indexes.push(i);
+		}
+		else { // this means we encountered a value that has lesser value than the peek.
+			// need to calculate max area.
+		int tmpIndex = indexes.pop();
+		int tmpArea=hists[tmpIndex] * (indexes.isEmpty() ? i :i-indexes.peek()-1);
+		
+		if(tmpArea>maxArea)
+			maxArea=tmpArea;
+		}
 	}
+
+	//inspect area with respect to left over indexes  in stack to see if we can maximize the area more,
+
+	while(!indexes.isEmpty())
+	{
+		          // need to calculate max area.
+                int tmpIndex = indexes.pop();
+                int tmpArea=hists[tmpIndex] * (indexes.isEmpty() ? i :i-indexes.peek()-1);
+                
+                if(tmpArea>maxArea)
+                        maxArea=tmpArea;
+                
+	}
+
+
+	return maxArea;
+}
+
+
+
+

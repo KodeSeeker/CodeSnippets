@@ -3,7 +3,7 @@
         if (s.isEmpty()) {
          return s;
        }
-      //pick random picot
+      //pick random pivot
 	 int pivot = s.pop();
 
        // partition

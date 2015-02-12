@@ -36,8 +36,9 @@ public static int numberOfPaths(int m, int n)
 //exponential time complexity:
 public static int numberOfPaths(int m, int n)
 {
-	if(m==1||n==1)
+	if(m==0||n==0)
 		return 1;
 	return numberOfPaths(m-1,n)+ numberOfPaths(m,n-1);
 }
+
 

@@ -37,7 +37,5 @@ for (int i= triangle.size()-2;i>=0;i--) {
 	//replace with max for max sum path
 	}
 }	
-
-
-return sums[0];// this will contain the actual min sum as the tree rolls up.
+	return sums[0];// this will contain the actual min sum as the tree rolls up.
 }

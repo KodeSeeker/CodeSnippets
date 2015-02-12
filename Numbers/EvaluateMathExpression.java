@@ -18,13 +18,11 @@ public static double evaluateExpression(String s)
    if(s.contains('*'))
     evaluateExpression(s.substring(0, s.indexOf('*')-1)) * evaluateExpression(s.substring(s.indexOf('*')+1);
    if(s.contains('/'))
-    evaluateExpression(s.substring(0, s.indexOf('-')-1)) -evaluateExpression(s.substring(s.indexOf('-')+1);
-  
-  else
-  {
+    evaluateExpression(s.substring(0, s.indexOf('-')-1)) / evaluateExpression(s.substring(s.indexOf('-')+1);
+  else {
     //No more operands, only a number
     return Double.parseDouble(s);
   }
 }
-}
+
 

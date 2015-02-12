@@ -13,12 +13,12 @@ L(“ABCDGH”, “AEDFHR”) = MAX ( L(“ABCDG”, “AEDFHR”), L(“ABCDGH�
 **/
 
 
-public  static int LCS(int[] X , int [] Y, int m, int n)// m is the length of X  and n is the length of Y.
+public  static int LCS(char[] X , char [] Y, int m, int n)// m is the length of X  and n is the length of Y.
 {
 
     if(m==0 && n==0)
         return 0;
-    int[][] LCS= new int [m][n];
+    int[][] LCS= new int [m+1][n+1];
      
     for(int i=0;i<=m;i++)
     {

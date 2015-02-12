@@ -10,10 +10,10 @@ public double sqrt(double a){
         return a;//edge case 2
     // core
     int start = 0;
-    int end=a;
+    int end = a;
     // based on fact that if (a>1) then 0<sqrt(a)<a
     //if(a<1) then 0<a<sqrt(a)
-    int precision=0.000001;
+    int precision = 0.000001;
     //check for value of a
     if(a<1)
         end=1;

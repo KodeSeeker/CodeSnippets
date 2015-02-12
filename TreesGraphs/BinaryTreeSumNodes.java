@@ -14,6 +14,6 @@ public int sumBinaryTree(Node root, int sum)
 	int leftSum= sumBinaryTree(root.getLeft(),sum);
 	int rightSum=sumBinaryTree(root.getRight(),sum);
 	
-	return root.dataleftSum+rightSum;
+	return root.data+leftSum+rightSum;
 }
 

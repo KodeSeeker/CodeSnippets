@@ -1,4 +1,4 @@
-mport java.util.PriorityQueue;
+import java.util.PriorityQueue;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -41,7 +41,9 @@ public class Dijkstra
             {
                 Vertex v = e.target;
                 double weight = e.weight;
-                double distanceThroughU = u.minDistance + weight;
+               
+		double distanceThroughU = u.minDistance + weight;
+		//relax V if new distance is smaller than prev distance from source. 
 		if (distanceThroughU < v.minDistance) {
 		    vertexQueue.remove(v);
 		    v.minDistance = distanceThroughU ;
@@ -51,6 +53,9 @@ public class Dijkstra
             }
         }
     }
+/**
+Get the set of vertex's from target back to source to get the path.
+**/
 
     public static List<Vertex> getShortestPathTo(Vertex target)
     {

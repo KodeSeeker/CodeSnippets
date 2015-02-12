@@ -29,7 +29,7 @@ public void deSerialize(Node root, FileStream fout)
 		return;
 	else
 	{
-		root=fout.getNext();
+		root=new Node (fout.getNext());
 		deSerialize(root.getLeft(),fout);
 		deSerialize(root.getRight(),fout);
 	}
