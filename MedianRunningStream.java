@@ -19,7 +19,7 @@ public class RunningMedian
 public PriorityQueue<Integer> min= new PriorityQueue<Integer>();
 public PriorityQueue<Integer> max= new PriorityQueue<Integer>(10, new Comparator()
 
-public int compare (int o1 int o2)
+public int compare (int o1, int o2)
   {
     return o2-o1;
   });
@@ -36,25 +36,23 @@ public int insertIntoMinMaxHeap(Instream in)
   {  
       for(Integer in: inStream )
       {
-      count++;
-      maxHeap.add(in);
-      if(maxHeap.size()>minHeap.size()+1) 
-          {
+     	 count++;
+    	 maxHeap.add(in);// by default add to max Heap.
+      	if(maxHeap.size()>minHeap.size()+1)  {
         // rebalance  required. 
-            int tmp= maxHeap.poll();
-            minHeap.add(tmp);
+            	int tmp= maxHeap.poll();
+            	minHeap.add(tmp);
           }
-          else if(maxHeap.peek()>minHeap.peek())
-          {
-        //swap the elements.
-            int tmp=maxHeap.poll();
-            maxHeap.add(minHeap.poll());
-            minHeap.add(tmp);
-          }
+          else if(maxHeap.peek()>minHeap.peek()){
+        	//swap the elements.
+            	int tmp=maxHeap.poll();
+           	 maxHeap.add(minHeap.poll());
+            	minHeap.add(tmp);
+         }
         
-       }
+      }
     
-   }
+  }
   
   
   catch(Exception e)

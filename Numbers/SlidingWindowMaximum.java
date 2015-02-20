@@ -12,7 +12,7 @@ Use a Deque
 Keep track of the index of the largest element seen so far in the window . Also ensure that you remove the index of the first index from the window when you move the window ahead to make sure the window is updated correctly
 **/
 
-public int[] slidingWindowMax(int[] a,int w)
+public int[] slidingWindowMax(int[] a,int w,int[] B)
 {
     int len =a.length;
     Deque <Integer> dq= new ArrayDeque<Integer>();

@@ -1,4 +1,4 @@
-**
+/**
 Given a range of numbers , find the missing numbers using the least amount of memory. ie. use a BitSet.
 **/
 
@@ -9,7 +9,7 @@ public class BitSet
 	//initialise the bitset vector
 	public BitSet(int size)
 	{
-		bitset= new int[(size>>5) +1];// compress -- dividing by 32
+		bitset= new int[(size>>5) +1];// compress -- dividing  range by 32
 	}
 	
 	//sets a number in the bitset

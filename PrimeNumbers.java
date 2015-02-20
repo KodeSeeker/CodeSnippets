@@ -17,7 +17,7 @@ public void printPrimes(int N)
 	{
 		if(prime[i])// score of all of its multiples.
 		{
-			for(int j=i*i;j<=n;j+=i)
+			for(int j=i;j<=n;j+=i)
 			{
 				prime[j]=false;
 			}

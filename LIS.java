@@ -19,7 +19,7 @@ public int[] LongestIncreasingSubsequence(int[]arr)
         int[] tailIndices = new int[size];
         int[] prevIndices= new int[size];
         
-        //initialise all prev indices to 0.
+        //initialise all prev indices to -1.
         
         for(int i=0;i<size;i++)
         {
@@ -35,7 +35,7 @@ public int[] LongestIncreasingSubsequence(int[]arr)
         for(int i=1;i<size;i++)
         {
             //current element is smaller than the smallest element.
-            if(A[i]<A[tailIndices[0]]
+            if(A[i]<A[tailIndices[0]])
             {
                 //discard current tail index and start a new list as per algo.
                 tailIndices[0]=i;
@@ -45,7 +45,7 @@ public int[] LongestIncreasingSubsequence(int[]arr)
             //current element is greater than the largest element.
             else if(A[i]>A[tailIndices[LISlen])
             {
-                prevIndices[i]=tailIndices[LISlen]);// note the prev index.
+                prevIndices[i]=tailIndices[LISlen];// note the prev index.
                 tailIndices[LISlen++]=i;
             }
             
@@ -88,5 +88,9 @@ public int[] LongestIncreasingSubsequence(int[]arr)
                     start=mid;
                     
              }
-          }
+        }
         
+
+
+
+
