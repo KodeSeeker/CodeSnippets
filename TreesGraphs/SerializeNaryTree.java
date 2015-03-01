@@ -1,33 +1,41 @@
 /**
+
+Either make root static or make root and fin members of same class and manipulate it using the object. 
+
 Extension of BT serialization Approach
+-> Assume N is globally defined
 
 **/
 
-public void serialize (Node root, FileStream fin) {
+ void serialize (Node root, FileStream fin) {
 
 	if(root ==null) {
 		fin.write("#");
 		return;
 	}
 		
-	fin.write(root.data);
+	fin.write(root.data);//assume fin appends to the stream and does  not overwrite. 
 	//serialize the n kids.
-	for( int i=0;i< root.children().length;i++) {
-		serialize(root.children[i]);
+	for( int i=0;i< N && (root.getChild[i]!=null) ;i++) {
+		serialize(root.children[i],fin);
 	}
 	
 }
 
 /**
-Deserialize
+Deserialize for N ary tree -> Assume N is globally defined
 **/
-public Node  deserialize(FileStream fout) {
+void   deserialize(FileStream fout,Node root) {
 
-	if(fout.getNext()=="#")
-		return null;
-	Node root = new Node (fout.data);
-	root.left= deserialize(fout.getLeft());
-	root.right= deserialize(fout.getRight());
+	if(fout.getNext()=="#"|| fout== null )
+		return;
+	root = new Node (fout.getNext().data);
+	
+	// deserialize all the children recursively.
+	for(int i=0; i< N ; i++) {
+		deserialize(fout, root.getChild(i));
+	}
+ 
 }
 
 

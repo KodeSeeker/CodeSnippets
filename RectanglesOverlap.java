@@ -5,8 +5,9 @@ The key here is to break down the problem into two separate problems.
 
 ie. Finding the overlap in the x and y axes.
 
-The overlap in any one axis is given by: |lowest end point-highest start point|.
+The overlap in any one axis is given by: |lowest (smaller)  end point-highest(larger) start point|.
 
+If highest start point falls after lowest end point THEN there is NO overlap!
 
 You are given the  height and width of each rectangle and bottom left corner of each rectangle.
 **/

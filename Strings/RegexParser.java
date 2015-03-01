@@ -39,7 +39,7 @@ public boolean regexPrefixMatch(String regex,String input)
      
      char regexFirst=regex.charAt(0);
      
-     if(regLength==0)// expression has been compltely parsed
+     if(inLength==0)// expression has been compltely parsed
          return true;
       
      if(regexLength==1 && regexFirst=='$')// case- $ - ends with.
@@ -52,7 +52,7 @@ public boolean regexPrefixMatch(String regex,String input)
             {
                 if(reg.charAt(i)!=in.charAt(i)|| reg.charAt(i)!='.')
                     break;
-             
+            
                  //assume you match i characters through the *-- now check  the i+1 characters
                  if( regexPrefixMatch(reg.delete(0,2),in.delete(0,i+1))
 			return true;

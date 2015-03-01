@@ -2,20 +2,13 @@
 Rotate an array by k positions in place (without using extra memory) 
 Approach :
 1) {1,2,3,4,5,6} k=2.=>5,6,1,2,3,4.
-{4,3,2,1} {6,5} (Split into two parts k-1, and k to n and reverse each part.
-
-reverse the whole thing 
-{5,6,1,2,3,4}
+Step 1 . Split into two arrays {1,2,3,4}{5,6}
+Step 2 : Reverse each split {4,3,2,1}{6,5}
+Step 3: Merge both splits -> {4,3,2,1,6,5}
+Step 4: Reverse the whole array {5,6,1,2,3,4}-->Rotated by 2
 
 
 */
-
-/**
-1.Reverse whole array.
-2. Split array into 2 pARTS 0 TO K-1. and K to N.
-3. Reverse the pars separately and concatenate .
-**/
-
 public static int[] rotateK(int[] arr,int K)
 {
     if(arr==null|| k<0)

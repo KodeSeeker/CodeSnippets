@@ -11,7 +11,10 @@ public class LRUCache<K,V> {
     map = new ConcurrentHashMap<K,V>(size);
     queue = new ConcurrentLinkedQueue<K>();
   }
-
+/**
+What happens if key is not there?
+//Fire a query nd put it into the cache ? and update contents accordingly?
+**/
   public V get(K key) {
     //Recently accessed, hence move it to the tail
     queue.remove(key);

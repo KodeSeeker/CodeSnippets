@@ -26,7 +26,7 @@ public int firstOccurenceString(String input)
   
   for(int i=0; i<input.length;i++)
   {
-    if cntArray[chrArr[i]]==1
+    if (cntArray[chrArr[i]]==1)
       return chrArr[i];
   }
 

@@ -40,17 +40,17 @@ def first_denomination(kinds):
         elif kinds == 5:
             return 50
 **/
-
+//initial call (amount,5);
 int CountWays(int amount, int denoms) {
 
 	if(amount ==0)
 		return 1;// change can be made only in one way.
 	if(amount <0 || denoms ==0)
 		return 0; // no change if amount <0 or if  no more denoms are left.
-	int d= first_Denomination(denoms);
+	int denom_amount= first_Denomination(denoms);
 	
 	//
-	return CountWays( amount-d,denoms) +CountWays (amount,d-1);
+	return CountWays( amount-denom_amount,denoms) +CountWays (amount,denoms-1);
 }
  
  //Dynamic Programming approach
