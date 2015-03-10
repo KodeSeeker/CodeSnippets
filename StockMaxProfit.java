@@ -14,14 +14,17 @@ public static int maxProfit(int[] stockPricesYesterday)
   // initially max_profit=0.
   // min_price= arr[0]
   
-  int mx_profit=0;
-  int min_price=stockPricesYesterday[0];
-  for (int i=0;i< stockPricesYesterday.length;i++)
-  {
-    int current_price=stockPricesYesterday[i];
-    min_price= Math.min(current_price,min_price);
-    mx_profit=Math.max(current_price-min_price,mx_profit);
-  }
+	if(stockPricesYesterday  == null) 
+		throw new IllegalArgumentException();
+
+	 int mx_profit=-1;
+ 	 int min_price=stockPricesYesterday[0];
+	 for (int i=1;i< stockPricesYesterday.length;i++) {
+    		int current_price=stockPricesYesterday[i];
+    
+   		 min_price= Math.min(current_price,min_price);
+  		 mx_profit=Math.max(current_price-min_price,mx_profit);
+  	}
   
   return mx_profit;
 }

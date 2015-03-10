@@ -50,7 +50,7 @@ public static IntegerNode findLoopStart(LinkedList linkedList) {
             }
  
             loopStartNode = slow;// can be fast as well!!
-            break;
+            break;// we  CAN  also set fast.next = null here to remove the cycle in linked list!
         }
     }
  

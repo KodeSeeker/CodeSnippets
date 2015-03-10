@@ -26,7 +26,7 @@ public int maxProdsubset(int[] arr)
 			else // negative.
 			{
 				int temp= maxEndHere;
-				maxEndHere= Math.max(minEndHere*arr[i],1);
+				maxEndHere= Math.max(minEndHere*arr[i],1);// 
 				minEndHere=temp*arr[i];
 			}
 			// check if its greater than the maxProd seen so far

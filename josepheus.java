@@ -6,8 +6,7 @@ The task is to choose the place in the initial circle so that you are the last o
 // key function here is f(n,k) = (f(n-1,k)+ k-1) mod n +1
 
 //iterative. 
-public int josepheus (int n , int k )
-{
+public int josepheus (int n , int k ){
 	int r=0; // remaining index.
 	for(int i=2;i<n;i++)
 	{
@@ -17,9 +16,8 @@ public int josepheus (int n , int k )
 	return r;
 }
 
-
-public int josepheus (int n, int k)
-{
+:
+public int josepheus (int n, int k){
 	if (n==1)
 		return 1;
 	else

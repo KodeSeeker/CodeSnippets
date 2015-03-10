@@ -82,6 +82,6 @@ public boolean isSafeToVisit( int[][] in, int x,int y )
 {
 	
 
-	return ((x<NUM_ROWS && y<NUM_COLS) && !visited[x][y]);
+	return ( (x>0 && y >0) && (x<NUM_ROWS && y<NUM_COLS) && !visited[x][y] && in[x][y] ==1);
 
 }	

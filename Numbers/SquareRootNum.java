@@ -18,7 +18,7 @@ public double sqrt(double a){
     if(a<1)
         end=1;
     while(end-start<precision){
-        int mid= (start+end)/2;
+        int mid= (start+end) >>>1;
         int midSqr=mid*mid;
         if(midSqr==a) 
             return mid;// we found the square root and the number was a perfect square
@@ -28,5 +28,5 @@ public double sqrt(double a){
             end =mid;
     }
     // if all else fails
-    return (start+end)/2;
+    return (start+end) >>>1;
 }

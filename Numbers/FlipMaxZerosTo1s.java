@@ -54,7 +54,7 @@ public int[] flipTomax1s(int[] arr, int m)
           {  //update max values.
               maxR=wRight;
               maxL=wLeft;
-              maxLengthSeq=wLeft-wRight;
+              maxLengthSeq=wRight-wLeft;
           }
     }
     // now populate the new array based on the above info

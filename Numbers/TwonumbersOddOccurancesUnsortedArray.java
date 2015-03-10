@@ -35,6 +35,6 @@ public static void recoverOddOccurring(int [] arr)
       y^=arr[i];
   }
 
-  Sysout (x,y);
+  System.out.print  ("Numbers are "+  x+ " and" +y);
 
 }

@@ -58,8 +58,7 @@ public class BreadthFirst {
 		{
 				if (!(c instanceof Coordinate))
 						return false;
-				if (c==this)
-					return true;
+			
 				else
 				{
 					return (this.x==c.x) &&(this.y==c.y);

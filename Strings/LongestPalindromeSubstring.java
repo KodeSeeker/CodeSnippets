@@ -11,7 +11,7 @@ public String longestPalindromicSubstring(String str)
 	String longest="";
 	String tmp ="";
 	
-	for(int i=0;i<str.length();i++)
+	for(int i=0;i<str.length()-1;i++)
 	{
 		//find longest palindromic substring around i.
 		tmp= expandAroundIndex(str,i,i);
@@ -32,13 +32,12 @@ public String longestPalindromicSubstring(String str)
 public String expandAroundCenter(String in, int begin, int end)
 {
 	
-	while(in !=null && begin >=0 && end<in.length() && in.charAt(begin) ==in.charAt(end))
+	if(in ==null) 
+		return null;
+	while ( begin > =0 && end<in.length() && in.charAt(begin) ==in.charAt(end))
 	{
 		begin--;
 		end++;
 	}
-	
-	return in.substring(begin, end+1)
-
+	return in.substring(begin+1, end-begin-1);
 }
-

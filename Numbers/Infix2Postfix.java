@@ -23,26 +23,28 @@
      {
          if (!c.isOperator())
          {
-             out.append(c);
+             out.append(c);// not an operator, assume its a number and push to stack
          }
-         else
-         {
-             if (ops.isEmpty())
+         else // its an operator
+         {	
+		
+             if (ops.isEmpty()) // stack is empty push to stack.
                 ops.push(c);
              else
              {
                  Operator top= ops.peek();
                  Operator tmp= new Operator(c);
                  if (tmp.priority>=top.priority)
-                    ops.push(tmp);
+                    ops.push(tmp);//push tmp to top of stack because it has larger priority than stack top
                  else
                  {
+			// need to pop off the top of stack till priority of tmp becomes greater than top of stack and then push it. 
                      while(tmp.priority<top.priority)
                      {
-                         ops.pop();
-                         out.append(tmp);
-                         tmp=ops.peek();
+                         out.append(ops.pop());
+                         top=ops.peek();
                      }
+			ops.push(tmp);//add back tmp to the stack.
                  }
              }
              
@@ -56,4 +58,6 @@
             }
             
             return out.toString();
- }
+ 	}
+}
+
