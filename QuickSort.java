@@ -35,7 +35,7 @@ respectively. Swap  elements that are out of order.
 
 public int partition(int[] arr, int start, int end)
 {
- 	int pivot = start+end >>>1;
+ 	int pivot =arr[start+end >>>1];
 	int i=start;
 	int j= end;
 	

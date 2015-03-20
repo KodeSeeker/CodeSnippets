@@ -20,7 +20,3 @@ public int maxFromRootToLeaf(Node root) {
 	
 	return root.data+ Math.max(leftSumAtNode,rightSumAtNode);
 }
-
-	
-
-}

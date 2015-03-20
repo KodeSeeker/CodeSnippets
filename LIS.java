@@ -3,6 +3,10 @@ Find the longest increasing subsequence in a given sequence of numbers
 **
 Direct extension of finding the length of LIS approach. 
 Keeps track of the previous Index's in addition of the current tail indexes.
+
+Time Complexity: O(nlogn ).
+
+
 **/
 
 
@@ -82,14 +86,15 @@ public int[] LongestIncreasingSubsequence(int[]arr)
             while(end-start>1)
             {
                 int mid=start+end>>>1;
-                if(target <=arr[tails[mid])
+                if(target <=arr[tails[mid]])
                    end =mid;
                 else
                     start=mid;
                     
              }
+		return end;
         }
-        
+	        
 
 
 

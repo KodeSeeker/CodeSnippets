@@ -7,7 +7,7 @@
 public class TinyURL
 {
     public static int urlID=0; // max number of URL's  shortened by this service. is limited by INT_MAX 
-    public static const int  URL_LENGTH=36;
+    public static final int  URL_LENGTH=36;
     //Maps to simulate a database.
     public Map<String,String> map= new HashMap<String,String>(); // maps base36 to URL.
     
@@ -28,6 +28,7 @@ public class TinyURL
         {
             id=++urlID;
         }
+	countURL.put(URL,id);
         map.put(Integer(i,URL_LENGTH),URL);// this way to help with decode
         
         return Integer(id,URL_LENGTH).toString();// base 36 version of the ID.

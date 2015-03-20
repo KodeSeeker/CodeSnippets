@@ -25,20 +25,20 @@ public int getElementOccuringOnce(int[] in)
 	}
 	
 	int result=0;
-	int sum,bitFlag;
+	int bitSum,bitFlag;
 	public static int INT_SIZE=32; //constant in Java.
 
 	for(int i=0;i<INT_SIZE;i++) //inspect all the bits
 	{
 		bitFlag=1<<i;
-		
+		bitSum=0;//set bitsum to zero for every bit.
 		for(int j=0;j<in.length;j++)
 		{
 			if(in[j] &bitFlag==1)
-				sum++;
+				bitSum++;
 		}// at this point. the ith bit of all numbers  is checked.
 
-		if(sum%3!=0)// the elements occurring thrice will be cancelled out. The bit of the element occurring once will remain
+		if(bitSum%3!=0)// the elements occurring thrice will be cancelled out. The bit of the element occurring once will remain
 		{
 			result|=bitFlag;
 		}

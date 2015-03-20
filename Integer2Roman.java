@@ -21,7 +21,7 @@ public String getRoman(int num)
 
 		for(int i=0;i<repeats;i++)
 		{
-			roman.append(symbo[count]);
+			roman.append(symbol[count]);
 		}
 		
 		num%=magnitude[count];//2015%1000=15. Update num for next symbol.
@@ -29,7 +29,4 @@ public String getRoman(int num)
 	}
 
 	return roman.toString();
-
-} 
-		
-		
+} 				

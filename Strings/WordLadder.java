@@ -50,10 +50,7 @@ public int wordLadderLength(String start, String end, Set<String> dict) {
 		{
 			for(char c='a';c<='z';c++)
 			{
-				currWordArray[i]=c;
-
-				
-				
+				currWordArray[i]=c;				
 				String newWord= new String(currWordArray);
 					
 				if(newWord.equals(end))// a single transformation results in the end word.

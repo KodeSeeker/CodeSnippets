@@ -36,10 +36,11 @@ public int longestLength(String in)
   {
     if(aux[i]==0)
       max_dist=i;
-    if(map.containsKey(aux[i]))
+    if(map.containsKey(aux[i])){
       max_dist=Math.max(max_dist,i- map.get(aux[i])-1);
-    else
+   }
       map.put(aux[i],i);
   }
   
+	return max_dist;
 }

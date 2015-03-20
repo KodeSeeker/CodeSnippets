@@ -11,8 +11,7 @@ the diameter(left Subtree), diameter(rightSubtree), diamter passing through the 
 
 **/
 
-public int diameter(Node root)
-{
+int diameter(Node root){
 	if(root==null)
 		return 0;
 	int leftDiameter= diameter(root.getLeft());
@@ -20,15 +19,11 @@ public int diameter(Node root)
 	//calculate diameter through root.
 	int leftHeight= getHeight(root.getLeft());
 	int rightHeight=getHeight(root.getRight());
-	
-
 	return Math.max(leftHeight+rightHeight+1,Math.max(leftDiameter,rightDiameter));
 }
-
-public int getHeight(Node n)
-{
+//helper gets the height of the node!
+int getHeight(Node n){
 	if(n==null)
 		return 0;
-	return 1+Math.max(getHeight(root.getRight(),root.getLeft());
+	return 1+Math.max(getHeight(root.getRight()),getHeight(root.getLeft()));
 }
-

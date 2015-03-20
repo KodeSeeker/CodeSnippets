@@ -1,15 +1,14 @@
-/**
+:/**
 Given a BST and a value K , check if two nodes that add up to K
 Algo:
 **/
 
-public boolean findTwoNodesThatSumUptoK(Node root,int k)
-{
+boolean findTwoNodesThatSumUptoK(Node root,int k) {
 
 	if(k<0)
-		return;
+		throw new IllegalArgumentException();
 	if(root ==null)
-		return;
+		return false;
 
 	 // take the max value and the min value and check if 
 	// its equal to k. If sum > k. Reduce it by moving max to its inorder_predecessor.
@@ -18,18 +17,17 @@ public boolean findTwoNodesThatSumUptoK(Node root,int k)
 	int min = getMin(root);// the left most node
 	int max = getMax(root); // the right most node.
 	
-	sum= min+max;
-	while(root!=null ||max!=-1 ||min!=-1)
-	{
+	
+	while(root!=null ||max!=-1 ||min!=-1){
+		int sum =min+max;	
+		
 		if(sum == k)
 			return true;
-		if(sum>k)
-		{
+		if(sum>k){
 			root= get_InOrderPredecessor(root,max);
 			 max =(root !=null? root.data:-1);
 		}
-		if(sum <k)
-		{
+		if(sum <k){
 			root= get_InOrderSuccessor(root, min);
 			min=root.data;
 		}
@@ -45,11 +43,11 @@ Get Min
 
 */
 //returns the left most node value in BST.
-public int getMin(Node root) {
+ int getMin(Node root) {
 
 	 while(root.getLeft()!=null) {
 		root=root.getLeft();
-}
+	}
 	return root;
 }
 
@@ -63,8 +61,7 @@ public int getMax(Node root) {
 	
 	while(root.getRight()!=null) {
 		root=root.getRight();
-}
-
+	}
 	return root;
 }
 
@@ -76,7 +73,7 @@ In order successor
 
  public Node get_InOrderSuccessor(Node root, Node value) {
 
-{	Node succ;
+	Node succ;
 	if(value.getRight()!=null)
 	{
 		//smallest element on the right side.
@@ -87,7 +84,9 @@ In order successor
 
  	else
 	{
+		root=root.getLeft();
 		//need to search for succ from root.
+		
 		while(root!=null)
 		{
 			if(root.data< value.data)
@@ -137,4 +136,4 @@ public Node get_InOrderPredecessor(Node root, Node value)
 }
 
 			
-
+	

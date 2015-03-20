@@ -4,11 +4,11 @@
 
 int findNumRotations(int input[]){
 
- int right =input.length-1;
- int left =0;
+ int high =input.length-1;
+ int low =0;
  //exit condition for binary search.
-  while(left<=right){
-  int mid=(left +right)/2;
+  while(low<=high){
+  int mid=(low+high)>>>1;
   int prev=(mid-1)%len;
   int next=(mid+1)%len;
   if (input[low]<input[high])

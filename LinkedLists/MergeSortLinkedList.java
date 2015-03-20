@@ -8,9 +8,10 @@ public class LinkedList
 {
 	public static Node a,b;
 	public static Node mid;
+	static Node result;
 	
-	public static void  SortLinkedList(Node head)
-	{
+	public static void  SortLinkedList(Node head){
+	
 		if(head ==null ||head.next ==null )//base case
 			return ;
 		Node mid = SplitinHalf(head);
@@ -23,58 +24,48 @@ public class LinkedList
 		return mergeSortedLists(a,mid);
 	}	
 
-	public static Node SplitinHalf(Node head)
-	{
+	public static Node SplitinHalf(Node head){
 		if (head==null)
 			return null;
 		Node fast= head;
 		Node slow=head;
-		while(fast.getNext()!=null)
-		{
+		while(fast.getNext()!=null){
 			fast=fast.getNext().getNext();
 			slow=slow.getNext();
 		}
-
 		//slow is the mid pointer
-
 		return slow;
 	}
 
 //Sorted Merge- to merge the function. 
 
+	public Node mergeSortedLists(Node a , Node b){
 
-
-	public Node mergeSortedLists(Node a , Node b)
-	{
-
-		
 		if (a ==null)
 			return b;
 		if (b==null)
 			return a;
-		if(a.getNext()!=null  && b.getNext()!=null)
-		{
-			if(a.value < b.value)
-			{
-				result= a;
-				result.next=mergeSortedLists(a.next,b);
+		
+		Node c = new Node();
+		while( a!=null && b!=null) {
+
+			if(a.data <=b.data){
+				c.data= a.data;
+				a=a.next;
 			}
-			if(b.value<a.value)
-			{
-				result=b;
-				result.next=mergeSortedLists(a,b.next);
+			else if (b.data<a.data) {
+				c.data=b.data;	
+				b= b.next;
 			}
+		c= c.next;//advance c
 		}
 		
-		while(a.getNext()!=null)
-			result.next=a.next;
-
+		while(a.next()!=null)
+			c.next=a.next;
 		while(b.next!=null)
-			result.next=b.next;
-
-		return result;
-
-	}			
+			c.next=b.next;
+		return c;
+}			
 
 
 

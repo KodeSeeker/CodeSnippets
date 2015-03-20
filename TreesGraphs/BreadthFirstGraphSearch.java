@@ -38,13 +38,7 @@ if( m == null)
 
                queue.add(friend);
                map.put(friend,map.get(current) +1 );
-      }
+      	}
 
-
+	}
 }
-
-}
-
-
-
-
