@@ -39,7 +39,7 @@
                  else
                  {
 			// need to pop off the top of stack till priority of tmp becomes greater than top of stack and then push it. 
-                     while(tmp.priority<top.priority)
+                     while(tmp.priority<top.priority && !ops.isEmpty())
                      {
                          out.append(ops.pop());
                          top=ops.peek();

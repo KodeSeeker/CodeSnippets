@@ -43,4 +43,64 @@ Node  getNode(String s) {
 	return n;// we return n - the last node and check if its a leaf or not in the caller!
 }
 				
+		
+
+
+/**
+Add method implementation :  Walk through the input string, handle case of the last character separately in the string. 
+
+**/
+
+// Returns reference to last node in the added string. 
+
+Node addString( String s ){
+
+	if( s== null )
+		return null; 
+	if(root == null) { // we need to create a new root. 
+		root =createNewNode( null, Node.SENTINAL, false);// Sentinal is a special character to represent the root.  
+	}
+	
+	int len = s.length()-1;
+	Node n =null;
+	Node prev=root;
+	for( int i=0;i< len;i++) {// inspect and move pointers for  all but last character
 			
+			char c = s.charAt(i);
+			int index = prev.childIndex(c);// find current index wrt to the child.
+			
+			if(index >=0) {// c is present in trie. 
+				n= prev.getChild(index);	
+			}
+			else {// create new node and add it as a valid child.  
+			 	n = createNewNode(prev,c, false);
+				prev.addChild(n);
+			}
+			prev =n;// update value of prev as you walk the string. 
+	}
+	
+	// handle the last character case. 
+
+	char lastChar = s.charAt(len);
+	int index = prev.childIndex(lastChar);
+	
+	if(index >=0) { // char is present in trie. need to change its attribute
+		n = prev.getChild(index);
+		
+		//change the attribute. 
+		if(n.isWord ==false) {
+			n.isWord =true;
+			n.character =c;
+			size++;
+			return n;
+		}
+		return null;//string already in trie.// n .isWord has already been marked! 
+
+	}
+	// else if index < 0. Create this node. 
+
+	n = createNewNode(prev, lastChar,true);
+	size++;
+	return n;	
+}
+		

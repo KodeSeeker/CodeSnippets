@@ -29,7 +29,7 @@ public int code(char c)
 
 
 }
-}
+
 
 public int getScore( String guess, String solution)
 {
@@ -58,7 +58,7 @@ public int getScore( String guess, String solution)
 		if(code >=0 && pseudoHitMap[code]!=0)
 		{
 			res.pseudoHits++;
-			pseudoHitMap[codet]--;
+			pseudoHitMap[code]--;
 		}
 	}
 }

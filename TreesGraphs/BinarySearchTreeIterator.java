@@ -4,7 +4,7 @@
  */
 public class Iterator {
 
-    private Stack<Node> stack = new Stack<>();
+    private Stack<Node> stack = new Stack<Node>();
     private Node current;
 
     private Iterator(Node argRoot) {
@@ -32,4 +32,4 @@ public class Iterator {
     public static Iterator iterator(Node root) {
         return new Iterator(root);
     }
-}
+}	

@@ -12,9 +12,8 @@ int substringIndex(String source, String pattern) {
 	
 		char[] sourceArr= source.toCharArray();
 		char[] pArr= pattern.toCharArray();
-		boolean pFound =false;
 	
-		int i =0;;
+		int i =0,j=0,tmpStartIndex =-1;
 
 		while(i <sourceArr.length) {
 			//skip all characters that are in source that are not needed!
