@@ -8,9 +8,8 @@ The diameter of a tree (sometimes called the width) is the number of nodes on th
 
 So the diameter can be recursively defined recursively as the largest amongst
 the diameter(left Subtree), diameter(rightSubtree), diamter passing through the root.
-
 **/
-
+//Time Complexity O(n^2)// we need to keep calculating height for each node(over and over) and then compute diameter. 
 int diameter(Node root){
 	if(root==null)
 		return 0;
@@ -27,3 +26,8 @@ int getHeight(Node n){
 		return 0;
 	return 1+Math.max(getHeight(root.getRight()),getHeight(root.getLeft()));
 }
+
+
+//Improved complexity . O(n) Compute height in the recursion(not separately) and return -1 if the tree is unbalanced. 
+
+

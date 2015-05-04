@@ -27,10 +27,10 @@ public int compare (int o1, int o2)
    public int count =0;
   
   
-public int insertIntoMinMaxHeap(Instream in)
+public void insertIntoMinMaxHeap(Instream in)
 {
   if(in==null|| in.isEmpty())
-    return -1;
+    return;
   //min-max heap approach. 
   try
   {  

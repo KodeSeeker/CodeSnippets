@@ -38,13 +38,14 @@ void printAllCousins( Node root, Node target) {
 		
 		if(nodesAtCurrentLevel >0){
 			Node curr = queue.remove();
+			
 			if(targetLevel)// we are at target's level so print node.
 				System.out.print(curr.data);
-			
+			nodesAtCurrentLevel --;
 			if(curr.getLeft()!= null) {
 				queue.add(curr.getLeft());
 				nodesAtNextLevel++;
-				
+			
 				if(curr.getLeft() == target)
 					targetFoundAtNextLevel =true;
 			

@@ -4,6 +4,8 @@
 **/
 
 //returns the node of the bst
+
+//pre order starts from the front of the btree
 public Node buildBST(int[] preOrder,int[] inOrder,int preIndex,int startIn,  int endIn)
 {
 	if(startIn>endIn)

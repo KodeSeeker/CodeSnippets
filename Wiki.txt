@@ -1,4 +1,8 @@
 Collection of pointers
+-- Garbage Collection --
+http://www.dynatrace.com/en/javabook/how-garbage-collection-works.html
+
+String formatting java.
 
  %s- format with as many strings as needed
   %15s- formats with 15 characters and right justifys
@@ -28,7 +32,10 @@ A method is a piece of code that is called by name that is associated with an ob
 
 http://stackoverflow.com/questions/155609/what-is-the-difference-between-a-method-and-a-function
 
----Virtual Function vs Pure Virtual function---
+---Virtual Function vs Pure Virtual function--
+
+A pure virtual function or pure virtual method is a virtual function that is required to be implemented by a derived class if that class is not abstract. Classes containing pure virtual methods are termed "abstract" and they cannot be instantiated directly. A subclass of an abstract class can only be instantiated directly if all inherited pure virtual methods have been implemented by that class or a parent class. Pure virtual methods typically have a declaration (signature) and no definition (implementation).
+----
 
 A virtual function makes its class a polymorphic base class. Derived classes can override virtual functions. Virtual functions called through base class pointers/references will be resolved at run-time. That is, the dynamic type of the object is used instead of its static type: 
 
@@ -90,3 +97,19 @@ threads share all segments except the stack. Threads have independent call stack
 
 28. What is the Liskov substitution principle? (answer)
 Liskov substitution principle is one of the five principle introduced by Uncle Bob as SOLID design principles. It's the 'L' in SOLID. Liskov substitution principle asserts that every sub type should be able to work as proxy for parent type. For example, if a method except object of Parent class then it should work as expected if you pass an object of Child class. Any class which cannot stand in place of its parent violate LSP or Liskov substitution principle. This is actually a tough question to answer and if you does that you end up with creating a good impression on interviewers mind.
+
+-----------------------
+
+SpinLock vs Mutex 
+http://stackoverflow.com/questions/5869825/when-should-one-use-a-spinlock-instead-of-mutex
+n theory, when a thread tries to lock a mutex and it does not succeed, because the mutex is already locked, it will go to sleep, immediately allowing another thread to run. It will continue to sleep until being woken up, which will be the case once the mutex is being unlocked by whatever thread was holding the lock before. When a thread tries to lock a spinlock and it does not succeed, it will continuously re-try locking it, until it finally succeeds; thus it will not allow another thread to take its place (however, the operating system will forcefully switch to another thread, once the CPU runtime quantum of the current thread has been exceeded, of course).
+
+The Problem
+
+The problem with mutexes is that putting threads to sleep and waking them up again are both rather expensive operations, they'll need quite a lot of CPU instructions and thus also take some time. If now the mutex was only locked for a very short amount of time, the time spent in putting a thread to sleep and waking it up again might exceed the time the thread has actually slept by far and it might even exceed the time the thread would have wasted by constantly polling on a spinlock. On the other hand, polling on a spinlock will constantly waste CPU time and if the lock is held for a longer amount of time, this will waste a lot more CPU time and it would have been much better if the thread was sleeping instead.
+
+The Solution
+
+Using spinlocks on a single-core/single-CPU system makes usually no sense, since as long as the spinlock polling is blocking the only available CPU core, no other thread can run and since no other thread can run, the lock won't be unlocked either. IOW, a spinlock wastes only CPU time on those systems for no real benefit. If the thread was put to sleep instead, another thread could have ran at once, possibly unlocking the lock and then allowing the first thread to continue processing, once it woke up again.
+
+On a multi-core/multi-CPU systems, with plenty of locks that are held for a very short amount of time only, the time wasted for constantly putting threads to sleep and waking them up again might decrease runtime performance noticeably. When using spinlocks instead, threads get the chance to take advantage of their full runtime quantum (always only blocking for a very short time period, but then immediately continue their work), leading to much higher processing throughput.
