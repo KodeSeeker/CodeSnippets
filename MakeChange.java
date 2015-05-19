@@ -28,7 +28,7 @@ public int countWays(int[] S, int m,int n)
 //Recursive Approach. -Easier to understand.
 /**
 First deonmination is given by :
-def first_denomination(kinds):
+def get_DenominationAmount(kinds):
         if kinds == 1:
             return 1
         elif kinds == 2:
@@ -47,7 +47,7 @@ int CountWays(int amount, int denoms) {
 		return 1;// change can be made only in one way.
 	if(amount <0 || denoms ==0)
 		return 0; // no change if amount <0 or if  no more denoms are left.
-	int denom_amount= first_Denomination(denoms);
+	int denom_amount= get_DenominationAmount(denoms);
 	
 	//
 	return CountWays( amount-denom_amount,denoms) +CountWays (amount,denoms-1);
