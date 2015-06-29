@@ -64,4 +64,4 @@ public boolean regexPrefixMatch(String regex,String input)
     
     //finallly match a single character.
     return ( in.length()!=0 && (in.charAt(i)==reg.charAt(i)||reg.charAt(i)=='.' ) && regexPrefixMatch(reg.delete(0,1),in.delete(0,1));
-    }
+ }

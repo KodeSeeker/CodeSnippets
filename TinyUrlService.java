@@ -29,7 +29,7 @@ public class TinyURL
             id=++urlID;
         }
 	countURL.put(URL,id);
-        map.put(Integer(i,URL_LENGTH),URL);// this way to help with decode
+        map.put(Integer(id,URL_LENGTH),URL);// this way to help with decode
         
         return Integer(id,URL_LENGTH).toString();// base 36 version of the ID.
     }

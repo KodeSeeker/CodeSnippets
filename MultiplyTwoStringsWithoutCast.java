@@ -9,7 +9,6 @@ One Approach : Convert each character to number equivalent and then multiply.
 
 ***/
 
-
 int multiplyStrings(String num1, String num2) {
 
 	if( num1 == null || num2 == null || num1.length() == 0 || num2.length() ==0)

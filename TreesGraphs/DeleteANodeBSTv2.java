@@ -32,13 +32,13 @@ boolean deleteANodeBST(Node root, Node target, Node parent) { // parent is initi
 			return true;
 		}
 	//case 2 :one kid only
-		if(root.getRight()! =null)//  has only  right kid.
+		if(root.getLeft()= =null)//  has only  right kid.
 		{
 			parent.getRight()==root? parent.right = root.getRight(): parent.left = root.getRight();// if root is on right side of parent then assign right side of parent to root
 			return true;											//s right child else left child of parent to root's right child .
 		}
 			
-		  if(root.getLeft()! =null)//  has only  left kid.
+		  if(root.getRight() ==null)//  has only  left kid.
                 {
                         parent.getRight()==root? parent.right = root.getLeft(): parent.left = root.getLeft();// if root is on right side of parent then assign right side of parent to root
                         return true;                                                                                        //s right child else left child of parent to root's right child .
@@ -66,4 +66,4 @@ int  getMaxFromLeftAndDelete(Node root) {
 }
 	
 		
-	
+

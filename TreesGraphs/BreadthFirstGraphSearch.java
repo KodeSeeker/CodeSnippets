@@ -21,7 +21,7 @@ if( m == null)
 	Map<Member,Integer> levels = new HashMap<Member,Integer>();
 
 	queue.add(m);
-	levels.put(m,1);// levels to keep track of members  in  different levels.
+	levels.put(m,0);// levels to keep track of members  in  different levels.
 
 	int currlevel =0;// variable to keep track of level change.
 

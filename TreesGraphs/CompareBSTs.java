@@ -32,7 +32,7 @@ public boolean sameBSTs(int[] bst1Arr, int[] bst2Arr)
 		}
 		if(bst1Arr[i]<root)
 		{
-			lessThanRoot[less]=bst1Arr[i];
+			lessThanRoot[less1]=bst1Arr[i];
 			less1++;
 		}
 		

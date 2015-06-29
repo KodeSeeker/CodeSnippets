@@ -17,11 +17,11 @@ public String getRoman(int num)
 
 	for(int count=0;num>0;count++)
 	{
-		repeats=num/magnitude[x];//for 2015 initially 2.
+		repeats=num/magnitude[count];//for 2015 initially 2.
 
 		for(int i=0;i<repeats;i++)
 		{
-			roman.append(symbol[x]);
+			roman.append(symbol[count]);
 		}
 		
 		num%=magnitude[x];//2015%1000=15. Update num for next symbol.

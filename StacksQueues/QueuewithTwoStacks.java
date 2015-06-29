@@ -31,5 +31,25 @@ public class QueueWithTwoStacks {
 	}
 }
 
+/**
+1-2-3-4
 
+push twice
+s1-  2-1
 
+pop once 
+s2 -1-2.
+
+return 1
+s1 - empty s2 2
+
+push 3 
+s1 -3
+s2 -2 
+ pop
+s2 - empty
+s1 -3
+pop
+s2-3 return 3
+
+s1 empty s2 empty

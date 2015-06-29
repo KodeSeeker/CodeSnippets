@@ -27,19 +27,19 @@ using preorder traversal(recursively).
 **/
 
 
-void printStripsVertically(Node root, Map<Integer,List<Node>> countMap, int dist) {
+Map<Integer,List<Integer>>  printStripsVertically(Node root, Map<Integer,List<Integer>> countMap, int dist) {
 
 	if( root == null )
-		return ;
+		return countMap ;
 
-	List<Node> nodeList = countMap.get(dist);// get list at current distance.
+	List<Integer> nodeList = countMap.get(dist);// get list at current distance.
 
 
 	if(nodeList ==null) { // this dist  hasnt been inspected yet, so create new list here. 
-		nodeList= new ArrayList<Node>();
+		nodeList= new ArrayList<Integer>();
 	}
 
-	nodeList.add(root);// add current node to list. 
+	nodeList.add(root.data);// add current node to list. 
 	countMap.put(dist,nodeList);// create mapping for current dist
 	//recurse left and right.
 

@@ -65,8 +65,8 @@ public class LinkedList
 		while(b.next!=null)
 			c.next=b.next;
 		return c;
-}			
+	}			
 
 
 
-
+}
