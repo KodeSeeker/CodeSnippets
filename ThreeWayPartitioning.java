@@ -14,8 +14,6 @@ int[] dutchNationalFlagSort(int[] arr){
 		
 		if( arr == null) 
 			throw new IllegalArgumentException();
-		if(arr[0] == arr[arr.length-1])
-			return arr;
 
 		int low =0;
 		int high = arr.length-1;
@@ -28,14 +26,19 @@ int[] dutchNationalFlagSort(int[] arr){
 				int tmp = arr[low];
 				arr[low]= arr[mid];
 				arr[mid] =tmp;
+				low++;
+				mid++;
 			}
-			else if (arr[mid] ==1)
+			else if (arr[mid] ==1){
+				mid++;
 				continue; // mid is supposed to be 1
-		
+			}
 			else if( arr[mid] ==2) {// swap mid and low !
 				int tmp = arr[high];
 				arr[high] = arr[mid];
 				arr[mid]= tmp;
+				mid++;
+				high--;
 			}
 		}
 

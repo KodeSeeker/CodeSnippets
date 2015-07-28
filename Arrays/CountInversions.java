@@ -23,7 +23,7 @@ int merge(int[] arr, int [] left, int [] right,int mid )
     		temp[k++]= left[i++]
 	
    	//copy rest of the elements from right subarray
-	while(j<arr.length-1)
+	while(j<=arr.length-1)
 		temp[k++]=right[j++];
 
 	return invCount;
@@ -36,7 +36,7 @@ int merge(int[] arr, int [] left, int [] right,int mid )
     {
         if (arr.length<2)
             return 0;
-        int mid = (arr.length+1)/2;
+        int mid =( 0+arr.length)>>>1;
         int [] left= Arrays.copyOfRange(arr,0,mid);
         int [] right= Arrays.copyOfRange(arr,mid,arr.length);
         return invCount(left)+invCount(right)+merge(arr,left,right,mid);

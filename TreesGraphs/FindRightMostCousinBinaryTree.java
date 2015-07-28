@@ -30,6 +30,7 @@ public void RightMostCousinBinaryTree(Node root, Node target) {
 			
 		if(nodesAtCurrentLevel == 1 && targetLevel) { // the content of the queue at this point will be the right most cousin
 			System.out.print(" The right most cousin is " queue.peek().data);
+			targetLevel=false;
 			return;
 		}
 			

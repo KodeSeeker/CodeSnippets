@@ -13,19 +13,18 @@ public static int[] rotateK(int[] arr,int K)
 {
     if(arr==null|| k<0)
         throw new IllegalArgumentException();
-    //Reverse whole array. 
-	int[] rev = reverse(arr);
-    //split the array into two parts 
+    
+    //split the array into two parts .. 0...n-k and n-k+1 to n
     int[] arBeforeK= new int[k];
-    for (int i=0;i<k;i++)
+    for (int i=0;i<n-k-1;i++)
      {
-         arBeforeK[i]=rev[i];
+         arBeforeK[i]=arr[i];
      }
     int[] arAfterK= new int[arr.length-k]
-    int tmp=0
+    int tmp=0;
 	for (int i=k;i<n;i++)
      {
-         arAfterK[tmp++]=rev[i];
+         arAfterK[tmp++]=arr[i];
      }
      
      //Reverse each part 
@@ -33,14 +32,14 @@ public static int[] rotateK(int[] arr,int K)
       arAfterK= reverse(arAfterK);
 	
 	int[] rotate= new int[arr.length];
-
+	//Copy over each part to the array
 	for(i =0;i<arBeforeK.length;i++)
 		rotate[i]=arBeforeK[i];
 	int tmp=K;
 	for(i=0;i<arAfterK.length;i++)
 		rotate[tmp++]=arAfterK[i];
-     
-	return rotate;
+     	///reverse array to acheive rotate by k effect
+	return reverse(rotate);
  }
  
  private static int[] reverse(int[] arr)

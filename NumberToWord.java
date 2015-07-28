@@ -42,7 +42,7 @@ Key approach is to split in batches of 1000 till you reach hundreds. Also every 
         " eleven",
         " twelve",
         " thirteen",
-        " fourteen",o
+        " fourteen",
         " fifteen",
         " sixteen",
         " seventeen",
@@ -108,6 +108,6 @@ String convertLessThanThousand( int num) {
 		if( num ==0) return current;
 		
 		//  else handle 100's place
-		return numNames[num] + "hundred" +current;
+		return numNames[num] + " hundred " +current;
 	}
 }

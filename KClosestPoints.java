@@ -1,6 +1,6 @@
 
 
-public class Point {
+public class Point implements Comparable<Point> {
 
    int x;
    int y;
@@ -9,12 +9,12 @@ public class Point {
    {
     return Math.pow(x,2)+ Math.pow(y,2);
     }
-     public int compare(Point a,Point b)
+     public int compareTo(Point a)
    {
-       int distancePt1=  Math.pow(a.x,2)+Math.pow(a.y,2);
-       int distancePt2=Math.pow(b.x,2)+Math.pow(b.y,2);
+       int thisDistance=  Math.pow(this.x,2)+Math.pow(this.y,2);
+       int distancePtA=Math.pow(a.x,2)+Math.pow(a.y,2);
        
-        return distancePt1-distancePt1;
+        return thisDistance-distancePtA;
   }
 }
 
@@ -31,7 +31,7 @@ public class KClosest
       pq.offer(p);
       return;
     }
-    else if(p.getDistance<pq.peek().getDistance())
+    else if(p.getDistance()<pq.peek().getDistance())
     {
       pq.poll();
       pq.add(p);
@@ -47,4 +47,4 @@ public class KClosest
     }
   }
   
-  }
+ }

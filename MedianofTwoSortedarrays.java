@@ -51,3 +51,40 @@ public int getMedian (int[]arr1,int start1,int end1,  int [] arr2, int start2, i
 		}
 	}
 }
+
+
+/**
+Median of Arrays of different length.
+**/
+
+
+public int getMedian (int[] a, int[] b,int aLength,int bLength) {
+
+	int left = (aLength+bLength+1) >>>1; //3,2, left = 3
+	int right =(aLength+bLength+2) >>>1;//3,2  right =3.(3.5  =>3)
+	//average of kth smallest, from left and right. 
+	return (findKthSmallest(a,b,aLength,bLength,left) + findKthSmallest(a,b,aLength,bLength,right))/2;
+}
+
+
+
+int findKthSmallest(int[] a, int[] b, int aLength, int bLength, int k) {
+
+	//bLength is always > aLength per logic.
+	if(aLength > bLength)
+		return findKthSmallest(b,a,bLength,aLength,k);
+	//Base cases.
+	if(aLength ==0 && bLength >0)
+		return b[k-1];
+	if (k ==1)
+		return Math.min(a[0],b[0]);
+	
+	int i = Math.min(k/2,aLength); // k is always less than length of array.
+	int j= Math.min(k/2,bLength);
+	
+	if(a[i-1] >b[j-1])// slice b, find the k-jth element.
+		return findKthSmmllest(a, Arrays.copyOfRange(b,j,b.length),aLength,bLength-j,k-j);
+	else 
+		return findKthSmallest(Arrays.copyOfRange(a,i,a.length),b,aLength-i,b,k-i);
+}
+

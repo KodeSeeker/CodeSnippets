@@ -27,7 +27,6 @@ public static PriorityQueue<Integer> sort(int [] in)
 		return null;
 	}
 	
-//	PriorityQueue <Integer> minHeap= new PriorityQueue<Integer>();
 	for(Integer i: in)
 	{
 		minHeap.add(i);

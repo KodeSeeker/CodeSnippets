@@ -21,7 +21,7 @@ public static String removeDuplicate(String string) {
 }
 
 public static char[] removeDuplicate(char[] chars) {
-    if(chars.length < 1) return new char[0];
+    if(chars.length < 1) return  char[0];
     else if(chars.length == 1) return chars;
 
     for(int i=0; i<chars.length-1; i++) {

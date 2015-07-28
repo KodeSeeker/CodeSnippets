@@ -42,11 +42,11 @@ void findClosestTwoElementsSumUptoTarget(int[] arr, int target) {
 				low++;
 		}
 		else if (mindiffSoFar >target) {
-			high++;
+			high--;
 		}
 	}
 
-	int closestValue = target+min_diff
+	int closestValue = target+min_diff;
 	System.out.print("Closest element to given target" + closestValue +" formed by sum of " +arr[ele1idx} + " and " +arr[ele2idx]);
 }
 
