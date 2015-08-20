@@ -9,7 +9,7 @@ public void rotateMatrix(int [] [] in)
 
 for(int i=0;i<in.length/2;i++)
 {
-	for(int j=0;j<n-1-i;i++)
+	for(int j=0;j<n-1-i;j++)
 	{
 		int temp= in[i][j];//store in temp variable
 		in[i][j]=in[n-1-j][i];

@@ -3,7 +3,7 @@
 /**
 Finding the longest palindromic substring is a classic problem of coding interview.
 **/
-//O(n^2) approach or O(n^3) ?
+//O(n^2) approach.
 public String longestPalindromicSubstring(String str)
 {
 	if(str ==null ||str.length()==0 || str.length()==1)
@@ -39,9 +39,8 @@ public String expandAroundCenter(String in, int begin, int end)
 		begin--;
 		end++;
 	}
-	return in.substring(begin+1, end-begin-1);
+	return in.substring(begin+1, end-begin+1);
 }
-
 
 
 

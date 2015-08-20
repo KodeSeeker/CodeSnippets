@@ -26,24 +26,34 @@ using preorder traversal(recursively).
 
 **/
 
+Map<Integer,Set<Integer>>  printStripsVertically(TreeNode root, Map<Integer,Set<Integer>> countMap, int dist) {
 
-Map<Integer,List<Integer>>  printStripsVertically(Node root, Map<Integer,List<Integer>> countMap, int dist) {
+        if( root == null )
+                return countMap;
 
-	if( root == null )
-		return countMap ;
-
-	List<Integer> nodeList = countMap.get(dist);// get list at current distance.
+        Set<Integer> nodeSet = countMap.get(dist);// get list at current distance.
 
 
-	if(nodeList ==null) { // this dist  hasnt been inspected yet, so create new list here. 
-		nodeList= new ArrayList<Integer>();
-	}
+        if(nodeSet ==null) { // this dist  hasnt been inspected yet, so create new list here. 
+                nodeSet= new HashSet<Integer>();
+        }
 
-	nodeList.add(root.data);// add current node to list. 
-	countMap.put(dist,nodeList);// create mapping for current dist
-	//recurse left and right.
+        nodeSet.add(root.data);// add current node to list. 
+        countMap.put(dist,nodeSet);// create mapping for current dist
+        //recurse left and right.
 
-	printStripsVertically(root.getLeft(),countMap,dist-1);
-	printStripsVertically(root.getRight(),countMap,dist+1);
-
+        Map<Integer,Set<Integer>> leftMap = printStripsVertically(root.getLeft(),countMap,dist-1);
+        Map<Integer,Set<Integer>> rightMap = printStripsVertically(root.getRight(),countMap,dist+1);
+        Map<Integer,Set<Integer>> mergedMap= new HashMap<Integer,Set<Integer>>();
+        Iterator<Integer> itLeft = leftMap.keySet().iterator();
+        while(itLeft.hasNext()){
+        	mergedMap.put(itLeft.next(),leftMap.get(itLeft.next()));
+        }
+        Iterator<Integer> itRight = rightMap.keySet().iterator();
+        while(itRight.hasNext()){
+        	mergedMap.put(itRight.next(),rightMap.get(itRight.next()));
+        }
+        
+        return mergedMap;
 }
+

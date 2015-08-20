@@ -30,7 +30,7 @@ public void insertCyclicLinkedList(Node a, int x)
 	
 
 		//case 2.- x is largest or smallest value
-		if((prev.data>p.data && (x<p.data  && x>prev.data))) 
+		if((prev.data>tmp.data && (x<tmp.data  && x>prev.data))) 
 			break;
 	}
 	
