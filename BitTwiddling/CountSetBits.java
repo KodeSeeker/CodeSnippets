@@ -1,5 +1,3 @@
-//this version is wrong. Needs fixing. Brian Kernighan appraoch is best. 
-//fixed.10/03
 private int countSetBits(int num){
 
 	if(num == 0)

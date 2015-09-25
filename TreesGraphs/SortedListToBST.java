@@ -16,6 +16,8 @@ public Node sortedListToBST(Node head)//wrapper
 // in order traversal approach
 public TreeNode sortedListToBST(Node h,int start,int end)
 {
+		if(start>end)
+			return null;
  		int mid= (start + end )>>>1;
 		TreeNode leftChild = sortedListToBST(h, start,mid-1);
 		TreeNode root= new TreeNode(h.data);

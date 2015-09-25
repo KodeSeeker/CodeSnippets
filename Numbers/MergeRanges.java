@@ -57,7 +57,16 @@ public List<Integer[]> mergeRange(List<Integer[]> input)
 		}
 	}
 
+//copy over the elements of the stack to a returnable list
+List<Integer[]> mergedRanges= new ArrayList<Integer[]>();
 
+while(!st.isEmpty()){
+	
+	mergedRanges.add(st.pop));
+}
+
+return mergedRanges;
+}
 //helper function
 // check overlap between any two ranges
 public static boolean isOverlap(Integer[] a, Integer[] b)
@@ -87,10 +96,10 @@ public static Integer[] mergeArrayRanges(Integer[] a, Integer[] b)
 	int size= end-start+1;
 	Integer[] mergedArr= new Integer[size];
 
-	for(int i=0;i<=size;i++)
+	int cnt=0;
+	for(int i=start;i<=end;i++)
 	{
-		mergedArr[i]=start;
-		start++;// possible because the numbers are continous values from start to end.
+		mergedArr[cnt++]=i;
 	}
 	
 	return mergedArr;

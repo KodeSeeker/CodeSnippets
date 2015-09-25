@@ -9,6 +9,11 @@ class Entry {
 	int arrNum;
 	int  arrIndex;
 
+	public Entry(int data, int arrNum, int arrIndex){
+		this.data=data;
+		this.arrNum=arrNum;
+		this.arrIndex=arrIndex;
+	}
 }
 
 
@@ -68,7 +73,5 @@ int[] KWayMerge(int[] [] arr){
 			minHeap.add(newCand);
 		}
 	}
-
-
 	return out;
 }

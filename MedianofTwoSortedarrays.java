@@ -1,7 +1,3 @@
-
-
-
-
 /**
 There are 2 sorted arrays A and B of size n each. 
 Write an algorithm to find the median of the array obtained after merging the above 2 arrays(i.e. array of length 2n). The complexity should be O(log(n))
@@ -38,8 +34,8 @@ public int getMedian (int[]arr1,int start1,int end1,  int [] arr2, int start2, i
 			return m1;
 		else
 		{
-			mid1= start1+end1>>>1;
-			mid2= start2+end2>>>1;
+			mid1= (start1+end1)>>>1;
+			mid2= (start2+end2)>>>1;
 		if(m1<m2)
 			{	
 				return getMedian(arr1,start,mid1,arr2,mid2,end );
@@ -83,7 +79,7 @@ int findKthSmallest(int[] a, int[] b, int aLength, int bLength, int k) {
 	int j= Math.min(k/2,bLength);
 	
 	if(a[i-1] >b[j-1])// slice b, find the k-jth element.
-		return findKthSmmllest(a, Arrays.copyOfRange(b,j,b.length),aLength,bLength-j,k-j);
+		return findKthSmallest(a, Arrays.copyOfRange(b,j,b.length),aLength,bLength-j,k-j);
 	else 
 		return findKthSmallest(Arrays.copyOfRange(a,i,a.length),b,aLength-i,b,k-i);
 }

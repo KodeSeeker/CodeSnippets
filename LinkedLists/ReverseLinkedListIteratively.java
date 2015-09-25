@@ -6,7 +6,7 @@ in place.
 
 public void reverseIteratively(Node head)
 {
-	if(head ==null) // an empty list returns empty.
+	if(head ==null||head.next ==null) // an empty list returns empty.
 		return;
 
 	Node prev,next;// used to hold pointers for previous and next node in the list as we traverse the list.

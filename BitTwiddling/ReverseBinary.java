@@ -1,7 +1,5 @@
 /**
-Write a method that reverses the binary notation for a  given input number 
-
-
+Write a method that reverses the binary notation for a  given input number
 approach : Uses xor-swap to emulate the string reversal.
 Walk down the string till the middle while swapping the elements in the front and the back.
 **/

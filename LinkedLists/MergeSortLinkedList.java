@@ -16,8 +16,16 @@ public class LinkedList
 			return ;
 		Node mid = SplitinHalf(head);
 		Node a =head;
+
 		// Splitin Half should copy head into a mid node and a start node.
 		//Recursively call above function 
+		//Delink the lists at the middle 
+		Node tmp=head;
+		while(tmp!=mid){
+				tmp =tmp.next;
+		}
+		tmp.next=null;
+
 		SortLinkedList(a);
 		SortLinkedList(mid);
 		//Merge the sortedLists
