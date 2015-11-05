@@ -31,13 +31,13 @@ int longestConsecutiveSeq(int[] arr ) {
 		int left =i-1;
 		int right =i+1;
 		
-		while(nums.contains(left)){
+		while(nums.contains(left) && left >0){
 			nums.remove(left);
 			count++;
 			left--;
 		}
 	
-		while(nums.contains(right)){
+		while(nums.contains(right)&& right <arr.length-1){
 			nums.remove(right);
 			count++;
 			right++;

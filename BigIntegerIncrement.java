@@ -1,11 +1,23 @@
-/**
-Given an integer in the form of an array. Perform an increment operation
-e.g. [1,2,9] => [1,3,0]
+package com.test;
 
+public class BigIntegerIncrement {
 
-**/
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    int[] num = {1,2,3};
+    int[] num2={9,9,9};
+    int[] num3={9,9,9,9};
+    int[] res = integerIncrement(num3);
+    
+     for(int i: res){
+    	 System.out.print(i);
+     }
+	}
 
-static int[] integerIncrement(int[] num) {
+	static int[] integerIncrement(int[] num) {
 
 		  int i=num.length-1;
 		  int[]res = new int[num.length];

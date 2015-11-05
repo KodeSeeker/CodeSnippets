@@ -30,8 +30,8 @@ public void deSerialize(Node root, FileStream fout)
 	else
 	{
 		root=new Node (fout.getNext());
-		deSerialize(root.getLeft(),fout);
-		deSerialize(root.getRight(),fout);
+		deSerialize(root.left,fout);
+		deSerialize(root.right,fout);
 	}
 }
 

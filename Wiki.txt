@@ -66,6 +66,10 @@ A classes static initialization normally happens immediately before the first ti
 http://stackoverflow.com/questions/3499214/java-static-class-initialization
 
 
+Java has a concept of PermGen space - this is the space used to store all class definitions, static variables, interned strings, etc.
+
+"This Java heap memory is structured again into regions, called generations. The longer an object lives, the higher the chance it will be promoted to an older generation. Young generations(such as Eden on Sun JVM) are more garbage collected than older generations(survivor and tenured on Sun JVM). However, there is also some separate heap space called permanent generation. Since it is a separate region, it is not considered part of the Java Heap space. Objects in this space are relatively permanent. Class definitions are stored here, as are static instances."
+
 -Final, finally, finalize
 http://stackoverflow.com/questions/7814688/in-java-what-purpose-do-the-keywords-final-finally-and-finalize-fulfil
 

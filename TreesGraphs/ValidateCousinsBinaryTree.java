@@ -48,7 +48,7 @@ public int getDist(Node root, Node n, int height)
 {
 	if(root ==null)
 		return 0;
-	if(root,equals(n))
+	if(root.equals(n))
 		return height;
 	int nodeDepth=getDist(root.getLeft(),n,height+1);
 	if(nodeDepth!=0)

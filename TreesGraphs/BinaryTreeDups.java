@@ -34,13 +34,11 @@ public Node countDuplicates(Node root, Node prev)
 
 
 //Recursion based Generic
-public int  countDuplicates (Node root, Node prev)
+public int  countDuplicates (Node root, Node prev,int count)
 {
             //Basic edge case .. root==null
             if(root==null)
-              return 0;
-            //else
-            int count=0;
+              return count;
             if (root.data==prev.data)
                 count++;
             return count+countDuplicates(root.getLeft(),root)+countDuplicates(root.getRight(),root);

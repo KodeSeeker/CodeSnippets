@@ -23,11 +23,17 @@ public void RightMostCousinBinaryTree(Node root, Node target) {
 
 		if(nodesAtCurrentLevel>0) {
 			Node current= queue.remove();
-			nodesAtCurrentLevel--
+			nodesAtCurrentLevel--;
 			if(current == target) {
 				targetLevel =true;
 			}
-			
+		//edge case: Node is right most cousin of itself
+		if(nodesAtCurrentLevel ==0 && targetLevel) {
+		System.out.print("Right most cousin" +current.data);
+		targetLevel=false;
+		return;
+		}
+		//end edge case		
 		if(nodesAtCurrentLevel == 1 && targetLevel) { // the content of the queue at this point will be the right most cousin
 			System.out.print(" The right most cousin is " queue.peek().data);
 			targetLevel=false;

@@ -39,8 +39,10 @@ public void  findKthSmallestElementBST(Node root)
 		{
 			
 			curr= st.pop();
-			if(k==0)
+			if(k==0){
 				System.out.print(" Kth largest node is "+curr.data);
+				return;
+			}
 			k--;
 			curr= curr.getRight();
 		}

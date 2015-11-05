@@ -1,10 +1,3 @@
-/**
-Given a string containing uppercase characters (A-Z), compress repeated 'runs' of the same character by storing the length of that run, and provide a function to reverse the compression. The output can be anything, as long as you can recreate the input with it.
-
-wwwwaaadexxxxxx
-w4a3d1e1x6
-**/
-
 package com.test;
 
 public class RunLengthEncoding {
@@ -93,5 +86,4 @@ public class RunLengthEncoding {
 				
 		}
 	}
-
 

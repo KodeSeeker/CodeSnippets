@@ -8,7 +8,7 @@ public boolean isHappyNumber(int num)
 		return true;
 	Set<Integer> repeats = new HashSet<Integer>();
 	
-	while(num!=1 and repeats.add(num))
+	while(num!=1 && repeats.add(num))
 	{
 		int sum =0;		
 		
@@ -21,5 +21,5 @@ public boolean isHappyNumber(int num)
 		num =sum;
 	}
 	
-	return ( num==1? true:false);
+	return ( num==1);
 }
