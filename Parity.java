@@ -18,12 +18,12 @@ public class Parity {
 
 		System.out.println(1<<2);
 	}
-
-	static int parity (int num ){
-		int result =0;
+	//Returns true for odd parity and false for even parity. 
+	static boolean parity (int num ){
+		boolean result = false;
 		
 		while(num>0){
-			result++;
+			result =!result; //toggle result.
 			num&=(num-1);
 		}
 		
