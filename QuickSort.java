@@ -6,7 +6,7 @@ public void quickSort(int array[])
 }
 
 
-public void quickSort(int array[], int start, int end)
+public void quickSort(int arr[], int start, int end)
 {
 
 	//key is to find pivot using partition
