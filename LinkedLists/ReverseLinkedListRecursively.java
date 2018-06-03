@@ -16,8 +16,12 @@ public Node reverseLLRecursively(Node head)
 	head.next=null;// to prevent a cycle.
 
 	Node reverse= reverse(secondElem);
-	secondElem.next=head;//connect secondElem to the head.
+	//connect secondElem to the head.. 
+	//prior to this step all the elements are disjoint. this step connects the element to its next ie. its head
+	secondElem.next=head;
 	
 	return reverse;
 
 }
+
+
